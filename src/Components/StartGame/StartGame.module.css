@@ -1,0 +1,151 @@
+@font-face {
+  font-family: rick-morty;
+  src: url('../../assets/get_schwifty.woff2');
+}
+
+.start_game_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5%;
+  padding: 2%;
+  background-color: #4193403f;
+  backdrop-filter: blur(12px);
+  box-sizing: border-box;
+}
+
+.how_to_play {
+  width: 100%;
+  max-width: 500px;
+  background-color: #e9e7e7bf;
+  color: #ffffff;
+  border: 1px solid #000;
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px #0000004d;
+}
+
+.how_to_play h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: fantasy;
+  letter-spacing: 4px;
+  color: #851515;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.how_to_play ul {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.how_to_play li {
+  margin-bottom: 0.5rem;
+  font-family: fantasy;
+  font-size: 1.1rem;
+  font-weight: 1000;
+  line-height: 1.5;
+  color: #160440;
+  list-style-type: disc;
+}
+
+.how_to_play li::marker {
+  color: #160440;
+  font-weight: 1000;
+}
+
+.game_play {
+  padding: 1% 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 4px;
+}
+
+.game_play h2 {
+  font-size: 4rem;
+  font-weight: 1000;
+  font-family: rick-morty;
+  color: #fff;
+  text-shadow: #000 1px 1px 3px, #000 -1px -1px;
+  letter-spacing: 5px;
+}
+
+.start_new_game,
+.resume_prev_game {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.start_new_game > h3 {
+  font-size: 2rem;
+  font-weight: 1000;
+  font-family: rick-morty;
+  color: #fff;
+  text-shadow: #000 1px 1px 3px, #000 -1px -1px;
+  letter-spacing: 4px;
+  word-spacing: 5px;
+  text-align: center;
+}
+
+.btn_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn_wrapper > button,
+.resume_btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1.5px solid #0000009d;
+  color: #fff;
+  letter-spacing: 2px;
+  font-family: fantasy;
+  font-size: 1.5rem;
+  font-weight: 900;
+  background-color: #adadac80;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn_wrapper > button:hover,
+.resume_btn:hover {
+  border: 1.5px solid #000;
+  color: #000;
+  background-color: transparent;
+  transform: scale(1.06);
+}
+
+@media (min-width: 768px) {
+  .start_new_game > h2 {
+    font-size: 4.5rem;
+  }
+
+  .btn_wrapper > button {
+    font-size: 2rem;
+    padding: 12px 24px;
+  }
+
+  .how_to_play h2 {
+    font-size: 2rem;
+  }
+
+  .how_to_play {
+    font-size: 1.1rem;
+  }
+}

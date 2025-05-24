@@ -1,0 +1,39 @@
+.play_game {
+  margin-top: 18rem;
+}
+
+.header {
+  width: 100%;
+  height: 130px;
+  font-size: 2rem;
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: #4193404d;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (min-width: 768px) {
+  .play_game {
+    margin-top: 12rem;
+  }
+  .header {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 1024px) {
+  .play_game {
+    margin-top: 10rem;
+  }
+}

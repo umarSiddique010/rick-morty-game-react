@@ -1,0 +1,37 @@
+@font-face {
+  font-family: rick-morty;
+  src: url('../../assets/get_schwifty.woff2');
+}
+.card_section {
+  width: 100%;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  background: transparent;
+}
+
+.loading_heading {
+  font-size: 8rem;
+  color: #a1140a;
+  font-weight: 1000;
+  font-family: rick-morty;
+  text-shadow: #08c952 2px 2px 2.5px, #08c952 -2px -2px;
+  letter-spacing: 4px;
+}
+
+.error_para {
+  font-size: 3rem;
+  color: #a1140a;
+  font-weight: 800;
+  font-family: cursive;
+  text-shadow: #c8d76a 2px 2px 2.5px, #c8d76a -2px -2px;
+  letter-spacing: 3px;
+  word-spacing: 4.5px;
+}
+
+
+
