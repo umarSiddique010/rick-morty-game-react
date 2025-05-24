@@ -36,12 +36,12 @@ export default class StartGame extends React.Component {
             <h2>Play Game</h2>
 
             <div className={Styles.resume_prev_game}>
-              <button
+              {this.props.level !== '' && <button
                 className={Styles.resume_btn}
                 onClick={this.handleResumePrevGame}
               >
                 Resume Game
-              </button>
+              </button>}
             </div>
             <div className={Styles.start_new_game}>
               <h3>New Game</h3>
