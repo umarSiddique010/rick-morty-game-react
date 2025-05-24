@@ -87,8 +87,8 @@ export default class StartGame extends React.Component {
   }
 
   handleStartNewGame(level) {
-    const { setStartGame, resetHighScore } = this.props;
+    const { setStartGame, resetHighScoreAndLevel } = this.props;
     setStartGame(false, level);
-    resetHighScore();
+    resetHighScoreAndLevel();
   }
 }

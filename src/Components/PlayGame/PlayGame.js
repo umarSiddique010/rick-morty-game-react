@@ -3,7 +3,7 @@ import CardContainer from '../CardContainer/CardContainer';
 import ScoreBoard from '../ScoreBoard/ScoreBoard';
 import TimerBoard from '../TimerBoard/TimerBoard';
 import Styles from './PlayGame.module.css';
-import { easeIn, motion } from 'motion/react';
+import { motion } from 'motion/react';
 
 export default class PlayGame extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ export default class PlayGame extends React.Component {
       setClickedCards,
       level,
       highestScore,
-      updateHighScoreLive,
+      saveHighScoreAndLevel,
       maxTimeInSecond,
       timeLeft,
       setTimerLeft,
@@ -46,7 +46,8 @@ export default class PlayGame extends React.Component {
             fetchedData={fetchedData}
             clickedCards={clickedCards}
             highestScore={highestScore}
-            updateHighScoreLive={updateHighScoreLive}
+            saveHighScoreAndLevel={saveHighScoreAndLevel}
+            level={level}
           />
           <TimerBoard
             timeLeft={timeLeft}

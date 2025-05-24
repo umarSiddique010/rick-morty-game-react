@@ -34,7 +34,8 @@ export default class ScoreBoard extends React.Component {
             className={
               fetchedData.length - clickedCards.length < 8
                 ? Styles.red_color
-                : fetchedData.length - clickedCards.length >= 8 && fetchedData.length - clickedCards.length <= 15
+                : fetchedData.length - clickedCards.length >= 8 &&
+                  fetchedData.length - clickedCards.length <= 15
                 ? Styles.yellow_color
                 : Styles.green_color
             }
@@ -64,7 +65,8 @@ export default class ScoreBoard extends React.Component {
             }}
             className={
               clickedCards.length < highestScore
-                ? Styles.green_color : Styles.red_color
+                ? Styles.green_color
+                : Styles.red_color
             }
           >
             {highestScore}
@@ -107,8 +109,8 @@ export default class ScoreBoard extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.clickedCards.length <= this.props.clickedCards.length) {
-      this.props.updateHighScoreLive(this.props.clickedCards.length);
+    if (prevProps.clickedCards.length < this.props.clickedCards.length) {
+      this.props.saveHighScoreAndLevel(this.props.clickedCards.length,);
     }
   }
 }

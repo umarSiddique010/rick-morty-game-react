@@ -32,7 +32,7 @@ export default class GameOver extends React.Component {
 
         <div className={Styles.score_board}>
           <h3>
-            GamePlay Duration: <span>{this.handleTotalTimeTaken()}</span>
+            Gameplay Duration: <span>{this.handleTotalTimeTaken()}</span>
           </h3>
 
           <h3>
@@ -116,9 +116,9 @@ export default class GameOver extends React.Component {
   const { timeLeft, level } = this.props;
 
   const totalTimes = {
-    easy: 200,
+    easy: 210,
     medium: 120,
-    hard: 70,
+    hard: 40,
   };
 
   const total = totalTimes[level] 

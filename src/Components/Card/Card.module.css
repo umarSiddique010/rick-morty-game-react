@@ -4,8 +4,8 @@
 }
 
 .cards {
-  width: 120px;
-  height: 150px;
+  width: 150px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@
 }
 
 .char_img_container {
-  width: 80px;
+  width: 100px;
   object-fit: cover;
   object-position: center;
   aspect-ratio: 1/1;
@@ -39,7 +39,7 @@
 .char_name {
   width: 100%;
   max-width: 300px;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   font-weight: 1000;
   color: #419340;
   text-shadow: #f1e543 1px 1px 2px, #f1e543 -1px -1px;

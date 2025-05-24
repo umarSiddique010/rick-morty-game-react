@@ -64,8 +64,8 @@ Coming soon
 - **Timer and Scoring System:**  
   Implemented a countdown timer that dynamically adjusts based on difficulty level, enforcing game pacing. The scoring system updates live and persists highest scores, encouraging repeat play and competition.
 
-- **Highest Score Persistence with LocalStorage:**  
-  Used the browser’s localStorage API to save and retrieve the player’s highest score, enabling score persistence across browser sessions and page reloads for a more engaging user experience.
+- **Highest Score and Difficulty Level Persistence with LocalStorage:**  
+  The app saves both the player’s highest score **and selected difficulty level** in `localStorage`. This enables seamless game continuity, allowing players to resume exactly where they left off even after closing or refreshing the browser.
 
 - **Separation of Concerns:**  
   Structured the project into modular components (`PlayGame`, `CardContainer`, `Card`, `ScoreBoard`, `TimerBoard`) to enhance maintainability, readability, and potential for future feature expansion.
@@ -134,8 +134,38 @@ src/
 - A card click checks for duplicates:
   - If new: card is stored, score is updated, cards reshuffle.
   - If duplicate: game over screen is triggered.
-- High score updates in real-time and persists via `localStorage`.
+- High score **and difficulty level** update in real-time and persist via `localStorage`, enabling the “Resume” feature to restore the player’s progress and settings on page reload or return visits.
 - Timer countdown is conditionally rendered based on difficulty.
+
+---
+
+## Installation
+
+1. Clone the repo:
+
+   ```bash
+   git clone https://github.com/umarSiddique010/rick-and-morty-memory-card-game.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd rick-and-morty-memory-card-game
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm start
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to play the game.
 
 ---
 
@@ -146,6 +176,7 @@ src/
 - Using `localStorage` for persistent data in a React environment
 - Structuring CSS Modules for reusable, scoped component styling
 - Building and organizing a React project using legacy tooling (CRA)
+- Integrating third-party animation libraries with React
 
 ---
 

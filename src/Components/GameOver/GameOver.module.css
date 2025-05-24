@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10%;
+  gap: 20px;
   padding-top: 5%;
   background-color: #4193403f;
   backdrop-filter: blur(8px);
@@ -20,6 +20,7 @@
 
 .game_over > h2,
 .score_board > h3 {
+  text-align: center;
   font-size: 7rem;
   font-weight: 1000;
   font-family: rick-morty;
@@ -30,11 +31,17 @@
 }
 
 .score_board > h3 {
+   max-width: 80%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.5;
   font-size: 3.5rem;
   font-family: fantasy;
   color: #fff;
   text-shadow: #000 0.3px 0.3px 2px, #000 -0.3px -0.3px;
 }
+
+
 
 .score_board > h3 > span {
   font-weight: 800;
@@ -46,10 +53,10 @@
   color: #26e02a !important;
 }
 .yellow_color {
-color: #dad72a !important;
+  color: #dad72a !important;
 }
 .red_color {
-color: #d91d32 !important;
+  color: #d91d32 !important;
 }
 
 .button_wrapper {
