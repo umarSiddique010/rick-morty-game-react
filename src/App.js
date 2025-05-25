@@ -55,8 +55,6 @@ export default class App extends React.Component {
       timeLeft,
     } = this.state;
 
-
-
     return (
       <AnimatePresence mode='wait'>
         {isGameOver ? (
@@ -172,5 +170,14 @@ export default class App extends React.Component {
 
   resetHighScoreAndLevel() {
     localStorage.removeItem('rick_and_morty_memory_game');
+  }
+
+  componentDidUpdate(prevProps, prevStates) {
+    const score = this.state.clickedCards.length;
+    const maxScore = 20;
+
+    if (prevStates.clickedCards.length !== score && score === maxScore) {
+      this.setState({ isGameOver: true });
+    }
   }
 }

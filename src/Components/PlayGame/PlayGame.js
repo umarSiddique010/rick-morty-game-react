@@ -8,6 +8,8 @@ import { motion } from 'motion/react';
 export default class PlayGame extends React.Component {
   constructor(props) {
     super(props);
+
+   
   }
 
   render() {
