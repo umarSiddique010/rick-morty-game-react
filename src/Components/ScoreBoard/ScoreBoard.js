@@ -115,7 +115,7 @@ export default class ScoreBoard extends React.Component {
         </h3>
         <div className={Styles.btn_wrapper}>
           <button className={Styles.mute_btn} onClick={this.handleMute}>
-            {!this.state.mute ? (
+            {this.state.mute ? (
               <IoVolumeMuteOutline className={Styles.mute} />
             ) : (
               <AiOutlineMuted className={Styles.unmute} />
