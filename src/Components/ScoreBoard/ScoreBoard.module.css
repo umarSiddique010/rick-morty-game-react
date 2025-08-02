@@ -9,7 +9,7 @@
 }
 
 .score_board > h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 1000;
   font-family: fantasy;
   color: #fff;
@@ -18,20 +18,54 @@
 }
 .score_board span {
   display: inline-flex;
-  gap: 5px;
   color: #fff;
-  font-size: 3rem;
+  gap: 2px;
+  font-size: 1.9rem;
 }
 
+.btn_wrapper {
+  margin-right: 30px;
+  margin-left: -10px;
+}
+
+.mute_btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.mute_btn:hover {
+  transform: scale(1.1);
+}
+
+.unmute,
+.mute {
+  width: 30px;
+  height: 30px;
+}
+
+.unmute * {
+  fill: #26e02a;
+  color: #26e02a;
+}
+
+.mute * {
+  fill: #880808;
+  color: #880808;
+}
+
+/* UTILITY CLASSES */
 
 .green_color {
-  color: rgb(38, 224, 42) !important;
+  color: #26e02a !important;
 }
 .yellow_color {
-color: rgb(218, 215, 42) !important;
+  color: #dad72a !important;
 }
 .red_color {
-color: rgb(217, 29, 50) !important;
+  color: #d91d32 !important;
 }
 
 @media (min-width: 768px) {
@@ -40,6 +74,13 @@ color: rgb(217, 29, 50) !important;
   }
   .score_board > h3 {
     font-size: 1.4rem;
+  }
+  .score_board span {
+    gap: 5px;
+    font-size: 3rem;
+  }
+  .btn_wrapper {
+    margin-left: 50px;
   }
 }
 
@@ -50,5 +91,10 @@ color: rgb(217, 29, 50) !important;
   }
   .score_board > h3 {
     font-size: 2.1rem;
+  }
+  .unmute,
+  .mute {
+    width: 55px;
+    height: 55px;
   }
 }

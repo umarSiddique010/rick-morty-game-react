@@ -56,10 +56,10 @@ export default class App extends React.Component {
     } = this.state;
 
     return (
-      <AnimatePresence mode='wait'>
+      <AnimatePresence mode="wait">
         {isGameOver ? (
           <GameOver
-            key='GameOver'
+            key="GameOver"
             fetchedData={fetchedData}
             clickedCards={clickedCards}
             highestScore={highestScore}
@@ -71,14 +71,14 @@ export default class App extends React.Component {
           />
         ) : startGame ? (
           <StartGame
-            key='StartGame'
+            key="StartGame"
             level={level}
             setStartGame={this.setStartGame}
             resetHighScoreAndLevel={this.resetHighScoreAndLevel}
           />
         ) : (
           <PlayGame
-            key='PlayGame'
+            key="PlayGame"
             fetchedData={fetchedData}
             error={error}
             shuffleCards={shuffleCards}
@@ -118,6 +118,7 @@ export default class App extends React.Component {
       startGame: startGame,
       level: gameLevel,
       timeLeft: countDown / 1000,
+      clickedCards: [],
     });
   }
 

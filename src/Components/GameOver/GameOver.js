@@ -1,11 +1,13 @@
 import React from 'react';
 import Styles from './GameOver.module.css';
 import { motion } from 'motion/react';
+import GameSounds from '../../GameSounds';
 
 export default class GameOver extends React.Component {
   constructor(props) {
     super(props);
-
+    this.gameSounds = new GameSounds();
+    this.timeOutId = null;
     this.handlePlayAgain = this.handlePlayAgain.bind(this);
     this.handleGoLobby = this.handleGoLobby.bind(this);
     this.handleTotalTimeTaken = this.handleTotalTimeTaken.bind(this);
@@ -100,7 +102,25 @@ export default class GameOver extends React.Component {
     );
   }
 
+  componentDidMount() {
+    this.timeOutId = setTimeout(() => {
+      this.gameSounds.playLobbyBGM();
+    }, 500);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeOutId);
+    this.gameSounds.pauseLobbyBGM();
+  }
+
   handlePlayAgain() {
+    if (this.props.level === 'easy') {
+      this.gameSounds.playEasyButtonSound();
+    } else if (this.props.level === 'medium') {
+      this.gameSounds.playMediumButtonSound();
+    } else if (this.props.level === 'hard') {
+      this.gameSounds.playHardButtonSound();
+    }
     this.props.setStartGame(false, this.props.level);
     this.props.setGameOver(false);
     this.props.resetClickedCard();
@@ -109,29 +129,27 @@ export default class GameOver extends React.Component {
   handleGoLobby() {
     this.props.setStartGame(true, this.props.level);
     this.props.setGameOver(false);
+    this.gameSounds.playLobbyButtonSound();
   }
 
+  handleTotalTimeTaken() {
+    const { timeLeft, level } = this.props;
 
-   handleTotalTimeTaken() {
-  const { timeLeft, level } = this.props;
+    const totalTimes = {
+      easy: 210,
+      medium: 120,
+      hard: 40,
+    };
 
-  const totalTimes = {
-    easy: 210,
-    medium: 120,
-    hard: 40,
-  };
+    const total = totalTimes[level];
+    const timeTaken = total - timeLeft;
 
-  const total = totalTimes[level] 
-  const timeTaken = total - timeLeft;
+    const minutes = Math.floor(timeTaken / 60);
+    const seconds = timeTaken % 60;
 
-  const minutes = Math.floor(timeTaken / 60);
-  const seconds = timeTaken % 60;
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+    const formattedSeconds = seconds.toString().padStart(2, '0');
 
-  const formattedMinutes = minutes.toString().padStart(2, '0');
-  const formattedSeconds = seconds.toString().padStart(2, '0');
-
-return `${formattedMinutes}:${formattedSeconds}`;
+    return `${formattedMinutes}:${formattedSeconds}`;
+  }
 }
-
-  }
-

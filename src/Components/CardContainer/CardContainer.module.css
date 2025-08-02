@@ -5,11 +5,11 @@
 .card_section {
   width: 100%;
   height: fit-content;
-  padding: 20px;
+  padding: 0;
+  gap: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
   flex-wrap: wrap;
   background: transparent;
 }
@@ -33,5 +33,9 @@
   word-spacing: 4.5px;
 }
 
-
-
+@media (min-width: 500px) {
+  .card_section {
+    padding: 12px;
+    gap: 20px;
+  }
+}

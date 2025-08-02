@@ -60,6 +60,7 @@
   transform: scale3d(1.1, 1.1, 1.1);
 }
 
+
 @media (min-width: 768px) {
   .cards {
     width: 220px;

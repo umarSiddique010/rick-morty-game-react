@@ -1,11 +1,20 @@
 import React from 'react';
 import Styles from './ScoreBoard.module.css';
 import { motion } from 'motion/react';
+import { IoVolumeMuteOutline } from 'react-icons/io5';
+import { AiOutlineMuted } from 'react-icons/ai';
 
 export default class ScoreBoard extends React.Component {
   constructor(props) {
     super(props);
+    this.gameSounds = this.props.gameSounds;
+    this.state = {
+      mute: false,
+    };
+
+    this.handleMute = this.handleMute.bind(this);
   }
+
   render() {
     const { fetchedData, clickedCards, highestScore } = this.props;
 
@@ -104,13 +113,34 @@ export default class ScoreBoard extends React.Component {
             {clickedCards.length}
           </motion.span>
         </h3>
+        <div className={Styles.btn_wrapper}>
+          <button className={Styles.mute_btn} onClick={this.handleMute}>
+            {!this.state.mute ? (
+              <IoVolumeMuteOutline className={Styles.mute} />
+            ) : (
+              <AiOutlineMuted className={Styles.unmute} />
+            )}
+          </button>
+        </div>
       </div>
     );
   }
 
+  handleMute() {
+    this.setState((prevState) => {
+      const newMute = !prevState.mute;
+      if (newMute) {
+        this.gameSounds.pauseGamePlaySound();
+      } else {
+        this.gameSounds.playGamePlaySound();
+      }
+      return { mute: newMute };
+    });
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.clickedCards.length < this.props.clickedCards.length) {
-      this.props.saveHighScoreAndLevel(this.props.clickedCards.length,);
+      this.props.saveHighScoreAndLevel(this.props.clickedCards.length);
     }
   }
 }

@@ -4,12 +4,13 @@ import ScoreBoard from '../ScoreBoard/ScoreBoard';
 import TimerBoard from '../TimerBoard/TimerBoard';
 import Styles from './PlayGame.module.css';
 import { motion } from 'motion/react';
+import GameSounds from '../../GameSounds';
 
 export default class PlayGame extends React.Component {
   constructor(props) {
     super(props);
-
-   
+    this.gameSounds = new GameSounds();
+    this.timeOutId = null;
   }
 
   render() {
@@ -50,6 +51,7 @@ export default class PlayGame extends React.Component {
             highestScore={highestScore}
             saveHighScoreAndLevel={saveHighScoreAndLevel}
             level={level}
+            gameSounds={this.gameSounds}
           />
           <TimerBoard
             timeLeft={timeLeft}
@@ -73,5 +75,15 @@ export default class PlayGame extends React.Component {
         />
       </motion.main>
     );
+  }
+  componentDidMount() {
+    this.timeOutId = setTimeout(() => {
+      this.gameSounds.playGamePlaySound();
+    }, 200);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeOutId);
+    this.gameSounds.pauseGamePlaySound();
   }
 }

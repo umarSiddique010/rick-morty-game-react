@@ -1,10 +1,10 @@
 import React from 'react';
 import Styles from './Card.module.css';
-
+import GameSounds from '../../GameSounds';
 export default class Card extends React.Component {
   constructor(props) {
     super(props);
-
+    this.gameSounds = new GameSounds();
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -29,7 +29,7 @@ export default class Card extends React.Component {
   handleClick(e) {
     this.props.shuffleFetchedValue();
     const dataID = Number(e.currentTarget.dataset.id);
-
+    this.gameSounds.playCardClickSound();
     if (this.props.clickedCards.includes(dataID)) {
       this.props.setGameOver(true);
     } else {

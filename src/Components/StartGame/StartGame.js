@@ -1,11 +1,12 @@
 import React from 'react';
 import Styles from './StartGame.module.css';
 import { motion } from 'motion/react';
+import GameSounds from '../../GameSounds';
 
 export default class StartGame extends React.Component {
   constructor(props) {
     super(props);
-
+    this.gameSounds = new GameSounds();
     this.handleStartNewGame = this.handleStartNewGame.bind(this);
     this.handleResumePrevGame = this.handleResumePrevGame.bind(this);
   }
@@ -36,12 +37,14 @@ export default class StartGame extends React.Component {
             <h2>Play Game</h2>
 
             <div className={Styles.resume_prev_game}>
-              {this.props.level !== '' && <button
-                className={Styles.resume_btn}
-                onClick={this.handleResumePrevGame}
-              >
-                Resume Game
-              </button>}
+              {this.props.level !== '' && (
+                <button
+                  className={Styles.resume_btn}
+                  onClick={this.handleResumePrevGame}
+                >
+                  Resume Game
+                </button>
+              )}
             </div>
             <div className={Styles.start_new_game}>
               <h3>New Game</h3>
@@ -84,11 +87,25 @@ export default class StartGame extends React.Component {
   handleResumePrevGame() {
     const { level, setStartGame } = this.props;
     setStartGame(false, level);
+    if (level === 'easy') {
+      this.gameSounds.playEasyButtonSound();
+    } else if (level === 'medium') {
+      this.gameSounds.playMediumButtonSound();
+    } else if (level === 'hard') {
+      this.gameSounds.playHardButtonSound();
+    }
   }
 
   handleStartNewGame(level) {
     const { setStartGame, resetHighScoreAndLevel } = this.props;
     setStartGame(false, level);
     resetHighScoreAndLevel();
+    if (level === 'easy') {
+      this.gameSounds.playEasyButtonSound();
+    } else if (level === 'medium') {
+      this.gameSounds.playMediumButtonSound();
+    } else if (level === 'hard') {
+      this.gameSounds.playHardButtonSound();
+    }
   }
 }

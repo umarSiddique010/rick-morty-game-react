@@ -1,25 +1,24 @@
 import React from 'react';
 import Card from '../Card/Card';
 import Styles from './CardContainer.module.css';
-import { easeInOut, motion } from 'motion/react';
-
+import { motion } from 'motion/react';
 export default class CardContainer extends React.Component {
   constructor(props) {
     super(props);
-
     this.API_URL = `https://rickandmortyapi.com/api/character/`;
-
     this.shuffleFetchedValue = this.shuffleFetchedValue.bind(this);
   }
 
   render() {
     const { error, shuffleCards, setClickedCards, clickedCards, setGameOver } =
       this.props;
+
     return (
-      <motion.section className={Styles.card_section}
-      initial={{y:100, opacity:0}}
-      animate={{y:0, opacity:1}}
-      transition={{duration:0.5, ease: 'easeInOut'}}
+      <motion.section
+        className={Styles.card_section}
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
       >
         {error && <h2 className={Styles.error_para}>Error: {error.message}</h2>}
 
@@ -45,7 +44,6 @@ export default class CardContainer extends React.Component {
 
   componentDidMount() {
     this.ignore = false;
-
     fetch(this.API_URL)
       .then((res) => res.json())
       .then((result) => {
