@@ -1,3 +1,49 @@
+@import url('./utility.css');
+
+:root {
+  /* color  */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* card colors  */
+  --color-card-bg: #047277;
+  --color-card-bg-hover: #41934090;
+  --color-char-name-text: #419340;
+  --color-char-name-text-shadow: #f1e543;
+  --color-card-box-shadow: #375252;
+  --color-img-box-shadow: #37525285;
+  --color-img-box-shadow-inset: #263413;
+
+  /* cardContianer colors*/
+  --color-loading-text: #a1140a;
+  --color-loading-text-shadow: #08c952;
+  --color-error-text: var(--color-loading-text);
+  --color-error-text-shadow: #c8d76a;
+
+  /* gameOver colors  */
+  --color-game-over-bg: #4193403f;
+  --color-game-over-btn-bg: #adadac80;
+  --color-game-over-btn-border: #0000009d;
+  --color-time-taken-text: #ca2020;
+
+  /* playGame colors  */
+  --color-header-bg: #4193404d;
+  --color-mute-on: #21be24;
+  --color-mute-off: #880808;
+
+  /* startGame colors  */
+  --color-start-game-bg: #4193403f;
+  --color-how-to-play-bg: #e9e7e7bf;
+  --color-how-to-play-box-shadow: #0000004d;
+  --color-how-to-play-heading-text: #851515;
+  --color-how-to-play-li-text: #160440;
+  --color-start-game-btn-bg: #adadac80;
+  --color-start-game-btn-border: #0000009d;
+
+  /* timeBoard */
+  --color-timer-board-text: #d62121;
+}
+
 *,
 *::after,
 *::before {
@@ -36,7 +82,6 @@ main {
 #root,
 main {
   display: flex;
-  flex-wrap: wrap;
   background: transparent;
 }
 
@@ -48,23 +93,10 @@ main {
   background-attachment: fixed;
 }
 
-h1 {
-  font-size: 2.7rem;
-  font-weight: 1000;
-  text-align: center;
-  font-family: 'rick-morty';
-  color: #ffffff;
-  text-shadow: #000 1px 1px 3px, #000 -1px -1px;
-  letter-spacing: 4px;
-  word-spacing: 5px;
-  line-height: 2;
-}
-
 @media (min-width: 768px) {
   html {
     font-size: 12px;
   }
-
 }
 
 @media (min-width: 1024px) {
@@ -72,7 +104,7 @@ h1 {
     font-size: 14px;
   }
 
-  h1{
-  font-size: 5rem;
+  h1 {
+    font-size: 5rem;
   }
 }

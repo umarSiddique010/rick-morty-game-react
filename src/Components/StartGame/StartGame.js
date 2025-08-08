@@ -1,12 +1,11 @@
 import React from 'react';
-import Styles from './StartGame.module.css';
-import { motion } from 'motion/react';
-import GameSounds from '../../GameSounds';
+import styles from './StartGame.module.css';
+import {motion} from 'motion/react';
 
 export default class StartGame extends React.Component {
   constructor(props) {
     super(props);
-    this.gameSounds = new GameSounds();
+    this.gameSounds = this.props.gameSounds;
     this.handleStartNewGame = this.handleStartNewGame.bind(this);
     this.handleResumePrevGame = this.handleResumePrevGame.bind(this);
   }
@@ -14,15 +13,15 @@ export default class StartGame extends React.Component {
   render() {
     return (
       <motion.main
-        initial={{ y: 0 }}
-        animate={{ y: 0 }}
-        exit={{ y: '-100vh' }}
-        transition={{ duration: 0.4, ease: 'easeInOut' }}
+        initial={{y: 0}}
+        animate={{y: 0}}
+        exit={{y: '-100vh'}}
+        transition={{duration: 0.4, ease: 'easeInOut'}}
       >
-        <div className={Styles.start_game_container}>
-          <h1>Rick and Morty Memory Card Game</h1>
+        <div className={styles.startGameContainer}>
+          <h1 className={styles.mainHeading}>Rick and Morty Memory Card Game</h1>
 
-          <div className={Styles.how_to_play}>
+          <div className={styles.howToPlay}>
             <h2>How to Play</h2>
             <ul>
               <li>Pick a difficulty level to begin.</li>
@@ -33,46 +32,31 @@ export default class StartGame extends React.Component {
             </ul>
           </div>
 
-          <div className={Styles.game_play}>
+          <div className={styles.gamePlay}>
             <h2>Play Game</h2>
 
-            <div className={Styles.resume_prev_game}>
+            <div className={styles.resumePrevGame}>
               {this.props.level !== '' && (
-                <button
-                  className={Styles.resume_btn}
-                  onClick={this.handleResumePrevGame}
-                >
+                <button className={styles.resumeBtn} onClick={this.handleResumePrevGame}>
                   Resume Game
                 </button>
               )}
             </div>
-            <div className={Styles.start_new_game}>
+            <div className={styles.startNewGame}>
               <h3>New Game</h3>
-              <div className={Styles.btn_wrapper}>
+              <div className={styles.btnWrapper}>
                 <button
-                  onClick={(e) =>
-                    this.handleStartNewGame(
-                      e.currentTarget.textContent.toLowerCase()
-                    )
-                  }
+                  onClick={e => this.handleStartNewGame(e.currentTarget.textContent.toLowerCase())}
                 >
                   Easy
                 </button>
                 <button
-                  onClick={(e) =>
-                    this.handleStartNewGame(
-                      e.currentTarget.textContent.toLowerCase()
-                    )
-                  }
+                  onClick={e => this.handleStartNewGame(e.currentTarget.textContent.toLowerCase())}
                 >
                   Medium
                 </button>
                 <button
-                  onClick={(e) =>
-                    this.handleStartNewGame(
-                      e.currentTarget.textContent.toLowerCase()
-                    )
-                  }
+                  onClick={e => this.handleStartNewGame(e.currentTarget.textContent.toLowerCase())}
                 >
                   Hard
                 </button>
@@ -85,7 +69,7 @@ export default class StartGame extends React.Component {
   }
 
   handleResumePrevGame() {
-    const { level, setStartGame } = this.props;
+    const {level, setStartGame} = this.props;
     setStartGame(false, level);
     if (level === 'easy') {
       this.gameSounds.playEasyButtonSound();
@@ -97,7 +81,7 @@ export default class StartGame extends React.Component {
   }
 
   handleStartNewGame(level) {
-    const { setStartGame, resetHighScoreAndLevel } = this.props;
+    const {setStartGame, resetHighScoreAndLevel} = this.props;
     setStartGame(false, level);
     resetHighScoreAndLevel();
     if (level === 'easy') {

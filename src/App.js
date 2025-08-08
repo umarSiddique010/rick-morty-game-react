@@ -2,15 +2,17 @@ import React from 'react';
 import PlayGame from './Components/PlayGame/PlayGame';
 import StartGame from './Components/StartGame/StartGame';
 import GameOver from './Components/GameOver/GameOver';
-import { AnimatePresence } from 'motion/react';
+import SoundToggleButton from './Components/SoundToggleButton/SoundToggleButton';
+import {AnimatePresence} from 'motion/react';
+import GameSounds from './GameSounds';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    const savedData = JSON.parse(
-      localStorage.getItem('rick_and_morty_memory_game')
-    );
+    this.gameSounds = new GameSounds();
+
+    const savedData = JSON.parse(localStorage.getItem('rick_and_morty_memory_game'));
     const savedLevel = savedData?.getLevel || '';
     const savedScore = Number(savedData?.getHighestScore) || 0;
 
@@ -57,59 +59,68 @@ export default class App extends React.Component {
 
     return (
       <AnimatePresence mode="wait">
-        {isGameOver ? (
-          <GameOver
-            key="GameOver"
-            fetchedData={fetchedData}
-            clickedCards={clickedCards}
-            highestScore={highestScore}
-            level={level}
-            setStartGame={this.setStartGame}
-            setGameOver={this.setGameOver}
-            resetClickedCard={this.resetClickedCards}
-            timeLeft={timeLeft}
+        <>
+          {isGameOver ? (
+            <GameOver
+              key="GameOver"
+              fetchedData={fetchedData}
+              clickedCards={clickedCards}
+              highestScore={highestScore}
+              level={level}
+              setStartGame={this.setStartGame}
+              setGameOver={this.setGameOver}
+              resetClickedCard={this.resetClickedCards}
+              timeLeft={timeLeft}
+              gameSounds={this.gameSounds}
+            />
+          ) : startGame ? (
+            <StartGame
+              key="StartGame"
+              level={level}
+              setStartGame={this.setStartGame}
+              resetHighScoreAndLevel={this.resetHighScoreAndLevel}
+              gameSounds={this.gameSounds}
+            />
+          ) : (
+            <PlayGame
+              key="PlayGame"
+              fetchedData={fetchedData}
+              error={error}
+              shuffleCards={shuffleCards}
+              setFetchedDataState={this.setFetchedDataState}
+              setErrorState={this.setErrorState}
+              setShuffleCardsState={this.setShuffleCardsState}
+              setGameOver={this.setGameOver}
+              clickedCards={clickedCards}
+              setClickedCards={this.setClickedCards}
+              saveHighScoreAndLevel={this.saveHighScoreAndLevel}
+              level={level}
+              highestScore={highestScore}
+              maxTimeInSecond={this.maxTimeInSecond}
+              timeLeft={timeLeft}
+              setTimerLeft={this.setTimerLeft}
+              gameSounds={this.gameSounds}
+            />
+          )}
+          <SoundToggleButton
+            gameSounds={this.gameSounds}
+            screenContext={isGameOver ? 'gameOver' : startGame ? 'startGame' : 'playGame'}
           />
-        ) : startGame ? (
-          <StartGame
-            key="StartGame"
-            level={level}
-            setStartGame={this.setStartGame}
-            resetHighScoreAndLevel={this.resetHighScoreAndLevel}
-          />
-        ) : (
-          <PlayGame
-            key="PlayGame"
-            fetchedData={fetchedData}
-            error={error}
-            shuffleCards={shuffleCards}
-            setFetchedDataState={this.setFetchedDataState}
-            setErrorState={this.setErrorState}
-            setShuffleCardsState={this.setShuffleCardsState}
-            setGameOver={this.setGameOver}
-            clickedCards={clickedCards}
-            setClickedCards={this.setClickedCards}
-            saveHighScoreAndLevel={this.saveHighScoreAndLevel}
-            level={level}
-            highestScore={highestScore}
-            maxTimeInSecond={this.maxTimeInSecond}
-            timeLeft={timeLeft}
-            setTimerLeft={this.setTimerLeft}
-          />
-        )}
+        </>
       </AnimatePresence>
     );
   }
 
   setFetchedDataState(fetchedData, renderData) {
-    this.setState({ fetchedData: fetchedData }, renderData);
+    this.setState({fetchedData: fetchedData}, renderData);
   }
 
   setErrorState(error) {
-    this.setState({ error: error });
+    this.setState({error: error});
   }
 
   setShuffleCardsState(shuffleCards) {
-    this.setState({ shuffleCards: shuffleCards });
+    this.setState({shuffleCards: shuffleCards});
   }
 
   setStartGame(startGame, gameLevel) {
@@ -123,7 +134,7 @@ export default class App extends React.Component {
   }
 
   setGameOver(isOver) {
-    this.setState({ isGameOver: isOver });
+    this.setState({isGameOver: isOver});
   }
   setClickedCards(cardID) {
     this.setState({
@@ -132,16 +143,13 @@ export default class App extends React.Component {
   }
 
   saveHighScoreAndLevel(currentScore) {
-    const { highestScore, level } = this.state;
+    const {highestScore, level} = this.state;
     if (currentScore > highestScore && level !== '') {
       const saveData = {
         getHighestScore: currentScore,
         getLevel: level,
       };
-      localStorage.setItem(
-        'rick_and_morty_memory_game',
-        JSON.stringify(saveData)
-      );
+      localStorage.setItem('rick_and_morty_memory_game', JSON.stringify(saveData));
 
       this.setState({
         highestScore: currentScore,
@@ -162,11 +170,11 @@ export default class App extends React.Component {
   }
 
   setTimerLeft(value) {
-    this.setState({ timeLeft: value });
+    this.setState({timeLeft: value});
   }
 
   resetClickedCards() {
-    this.setState({ clickedCards: [] });
+    this.setState({clickedCards: []});
   }
 
   resetHighScoreAndLevel() {
@@ -178,7 +186,7 @@ export default class App extends React.Component {
     const maxScore = 20;
 
     if (prevStates.clickedCards.length !== score && score === maxScore) {
-      this.setState({ isGameOver: true });
+      this.setState({isGameOver: true});
     }
   }
 }

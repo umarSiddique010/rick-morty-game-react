@@ -1,8 +1,9 @@
 {
-    "cSpell.words": [
-        "schwifty",
-        "shuff",
-        "Siddique",
-        "Umar"
-    ]
+  "cSpell.words": ["schwifty", "shuff", "Siddique", "Umar"],
+  "eslint.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "editor.formatOnSave": false,
+  "eslint.validate": ["javascript", "javascriptreact"]
 }

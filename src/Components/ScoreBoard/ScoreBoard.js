@@ -1,8 +1,8 @@
 import React from 'react';
-import Styles from './ScoreBoard.module.css';
-import { motion } from 'motion/react';
-import { IoVolumeMuteOutline } from 'react-icons/io5';
-import { AiOutlineMuted } from 'react-icons/ai';
+import styles from './ScoreBoard.module.css';
+import {motion} from 'motion/react';
+import {GiSoundOn} from 'react-icons/gi';
+import {GiSoundOff} from 'react-icons/gi';
 
 export default class ScoreBoard extends React.Component {
   constructor(props) {
@@ -16,14 +16,17 @@ export default class ScoreBoard extends React.Component {
   }
 
   render() {
-    const { fetchedData, clickedCards, highestScore } = this.props;
+    const {fetchedData, clickedCards, highestScore} = this.props;
+
+    const cardLeft = fetchedData.length - clickedCards.length;
 
     return (
-      <div className={Styles.score_board}>
+      <div className={styles.scoreBoard}>
         <h3>
           {clickedCards.length > 1 ? 'Cards' : 'Card'} left:{' '}
           <motion.span
-            key={fetchedData.length - clickedCards.length}
+            data-testid="cards-left"
+            key={cardLeft}
             initial={{
               y: -20,
               opacity: 0,
@@ -41,20 +44,20 @@ export default class ScoreBoard extends React.Component {
               ease: 'easeInOut',
             }}
             className={
-              fetchedData.length - clickedCards.length < 8
-                ? Styles.red_color
-                : fetchedData.length - clickedCards.length >= 8 &&
-                  fetchedData.length - clickedCards.length <= 15
-                ? Styles.yellow_color
-                : Styles.green_color
+              cardLeft < 8
+                ? 'red-color'
+                : cardLeft >= 8 && cardLeft <= 15
+                  ? 'yellow-color'
+                  : 'green-color'
             }
           >
-            {fetchedData.length - clickedCards.length}
+            {cardLeft}
           </motion.span>
         </h3>
         <h3>
           Highest score:{' '}
           <motion.span
+            data-testid="highest-score"
             key={highestScore}
             initial={{
               y: 20,
@@ -72,11 +75,7 @@ export default class ScoreBoard extends React.Component {
               duration: 0.3,
               ease: 'easeInOut',
             }}
-            className={
-              clickedCards.length < highestScore
-                ? Styles.green_color
-                : Styles.red_color
-            }
+            className={clickedCards.length < highestScore ? 'green-color' : 'red-color'}
           >
             {highestScore}
           </motion.span>
@@ -84,6 +83,7 @@ export default class ScoreBoard extends React.Component {
         <h3>
           Current score:
           <motion.span
+            data-testid="current-score"
             key={clickedCards.length}
             initial={{
               y: 20,
@@ -101,24 +101,24 @@ export default class ScoreBoard extends React.Component {
               duration: 0.3,
               ease: 'easeInOut',
             }}
-            style={{ marginLeft: '6px' }}
+            style={{marginLeft: '6px'}}
             className={
               clickedCards.length < 8
-                ? Styles.green_color
+                ? 'green-color'
                 : clickedCards.length >= 8 && clickedCards.length <= 15
-                ? Styles.yellow_color
-                : Styles.red_color
+                  ? 'yellow-color'
+                  : 'red-color'
             }
           >
             {clickedCards.length}
           </motion.span>
         </h3>
-        <div className={Styles.btn_wrapper}>
-          <button className={Styles.mute_btn} onClick={this.handleMute}>
+        <div className={styles.btnWrapper}>
+          <button className={styles.muteToggleBtn} onClick={this.handleMute}>
             {this.state.mute ? (
-              <IoVolumeMuteOutline className={Styles.mute} />
+              <GiSoundOff className={styles.muteOff} />
             ) : (
-              <AiOutlineMuted className={Styles.unmute} />
+              <GiSoundOn className={styles.muteOn} />
             )}
           </button>
         </div>
@@ -127,14 +127,14 @@ export default class ScoreBoard extends React.Component {
   }
 
   handleMute() {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       const newMute = !prevState.mute;
       if (newMute) {
         this.gameSounds.pauseGamePlaySound();
       } else {
         this.gameSounds.playGamePlaySound();
       }
-      return { mute: newMute };
+      return {mute: newMute};
     });
   }
 

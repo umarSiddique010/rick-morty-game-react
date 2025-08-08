@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from './TimerBoard.module.css';
+import styles from './TimerBoard.module.css';
 
 export default class TimerBoard extends React.Component {
   constructor(props) {
@@ -12,16 +12,16 @@ export default class TimerBoard extends React.Component {
     const timer = this.renderTimer();
 
     return (
-      <h3 className={Styles.timer_board}>
-        <span>Time Left:</span> {timer}
+      <h3 className={styles.timerBoard}>
+        <span data-testid="time-left">Time Left:</span> {timer}
       </h3>
     );
   }
 
   componentDidMount() {
     this.intervalID = setInterval(() => {
-      const { timeLeft } = this.props;
-      this.props.setTimerLeft((timeLeft - 1));
+      const {timeLeft} = this.props;
+      this.props.setTimerLeft(timeLeft - 1);
     }, 1000);
 
     this.timeOutID = setTimeout(() => {
@@ -36,7 +36,7 @@ export default class TimerBoard extends React.Component {
   }
 
   renderTimer() {
-    const { timeLeft } = this.props;
+    const {timeLeft} = this.props;
     let mins = Math.floor(timeLeft / 60);
     let secs = timeLeft % 60;
 

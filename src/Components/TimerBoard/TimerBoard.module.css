@@ -1,25 +1,29 @@
-.timer_board {
+.timerBoard {
   font-size: 2rem;
   font-weight: 1000;
   font-family: fantasy;
-  color: #d62121;
-  text-shadow: #000 0.3px 0.3px 2px, #000 -0.3px -0.3px;
+  color: var(--color-timer-board-text);
+  text-shadow:
+    var(--color-black) 0.3px 0.3px 2px,
+    var(--color-black) -0.3px -0.3px;
   letter-spacing: 4px;
 }
 
-.timer_board > span {
-  color: #fff;
-  text-shadow: #000 0.1px 0.1px 3px, #000 -0.1px -0.1px;
+.timerBoard > span {
+  color: var(--color-white);
+  text-shadow:
+    var(--color-black) 0.1px 0.1px 3px,
+    var(--color-black) -0.1px -0.1px;
 }
 
 @media (min-width: 768px) {
-  .timer_board {
+  .timerBoard {
     font-size: 1.4rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .timer_board {
+  .timerBoard {
     font-size: 2.1rem;
   }
 }

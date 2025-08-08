@@ -3,63 +3,79 @@
   src: url('../../assets/get_schwifty.woff2');
 }
 
-.start_game_container {
+.mainHeading {
+  font-size: 2.7rem;
+  font-weight: 1000;
+  text-align: center;
+  font-family: 'rick-morty';
+  color: var(--color-white);
+  text-shadow:
+    var(--color-black) 1px 1px 3px,
+    var(--color-black) -1px -1px;
+  letter-spacing: 4px;
+  word-spacing: 5px;
+  line-height: 2;
+}
+
+.startGameContainer {
   width: 100%;
-  height: 100%;
+  min-height: fit-content;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5%;
   padding: 2%;
-  background-color: #4193403f;
+  background-color: var(--color-start-game-bg);
   backdrop-filter: blur(12px);
   box-sizing: border-box;
+  overflow-y: scroll;
 }
 
-.how_to_play {
+.howToPlay {
   width: 100%;
   max-width: 500px;
-  background-color: #e9e7e7bf;
-  color: #ffffff;
-  border: 1px solid #000;
+  background-color: var(--color-how-to-play-bg);
+  color: var(--color-white);
+  border: 1px solid var(--color-black);
   padding: 1rem;
   border-radius: 10px;
   font-family: sans-serif;
   font-size: 1rem;
-  box-shadow: 0 2px 8px #0000004d;
+  box-shadow: 0 2px 8px var(--color-how-to-play-box-shadow);
 }
 
-.how_to_play h2 {
+.howToPlay h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   font-family: fantasy;
   letter-spacing: 4px;
-  color: #851515;
+  color: var(--color-how-to-play-heading-text);
   text-align: center;
   text-decoration: underline;
 }
 
-.how_to_play ul {
+.howToPlay ul {
   padding-left: 1.5rem;
   margin: 0;
 }
 
-.how_to_play li {
+.howToPlay li {
   margin-bottom: 0.5rem;
   font-family: fantasy;
   font-size: 1.1rem;
   font-weight: 1000;
   line-height: 1.5;
-  color: #160440;
+  color: var(--color-how-to-play-li-text);
   list-style-type: disc;
 }
 
-.how_to_play li::marker {
-  color: #160440;
+.howToPlay li::marker {
+  color: var(--color-how-to-play-li-text);
   font-weight: 1000;
 }
 
-.game_play {
+.gamePlay {
   padding: 1% 10%;
   display: flex;
   flex-direction: column;
@@ -69,17 +85,19 @@
   border-radius: 4px;
 }
 
-.game_play h2 {
+.gamePlay h2 {
   font-size: 4rem;
   font-weight: 1000;
   font-family: rick-morty;
-  color: #fff;
-  text-shadow: #000 1px 1px 3px, #000 -1px -1px;
+  color: var(--color-white);
+  text-shadow:
+    var(--color-black) 1px 1px 3px,
+    var(--color-black) -1px -1px;
   letter-spacing: 5px;
 }
 
-.start_new_game,
-.resume_prev_game {
+.startNewGame,
+.resumePrevGame {
   width: 100%;
   max-width: 600px;
   display: flex;
@@ -89,18 +107,20 @@
   margin-top: 2rem;
 }
 
-.start_new_game > h3 {
+.startNewGame > h3 {
   font-size: 2rem;
   font-weight: 1000;
   font-family: rick-morty;
-  color: #fff;
-  text-shadow: #000 1px 1px 3px, #000 -1px -1px;
+  color: var(--color-white);
+  text-shadow:
+    var(--color-black) 1px 1px 3px,
+    var(--color-black) -1px -1px;
   letter-spacing: 4px;
   word-spacing: 5px;
   text-align: center;
 }
 
-.btn_wrapper {
+.btnWrapper {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -108,44 +128,50 @@
   gap: 15px;
 }
 
-.btn_wrapper > button,
-.resume_btn {
+.btnWrapper > button,
+.resumeBtn {
   padding: 10px 20px;
   border-radius: 6px;
-  border: 1.5px solid #0000009d;
-  color: #fff;
+  border: 1.5px solid var(--color-start-game-btn-border);
+  color: var(--color-white);
   letter-spacing: 2px;
   font-family: fantasy;
   font-size: 1.5rem;
   font-weight: 900;
-  background-color: #adadac80;
+  background-color: var(--color-start-game-btn-bg);
   cursor: pointer;
   transition: all 0.4s ease-in-out;
 }
 
-.btn_wrapper > button:hover,
-.resume_btn:hover {
-  border: 1.5px solid #000;
-  color: #000;
+.btnWrapper > button:hover,
+.resumeBtn:hover {
+  border: 1.5px solid var(--color-black);
+  color: var(--color-black);
   background-color: transparent;
   transform: scale(1.06);
 }
 
 @media (min-width: 768px) {
-  .start_new_game > h2 {
+  .startNewGame > h2 {
     font-size: 4.5rem;
   }
 
-  .btn_wrapper > button {
+  .btnWrapper > button {
     font-size: 2rem;
     padding: 12px 24px;
   }
 
-  .how_to_play h2 {
+  .howToPlay h2 {
     font-size: 2rem;
   }
 
-  .how_to_play {
+  .howToPlay {
     font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainHeading {
+    font-size: 5rem;
   }
 }

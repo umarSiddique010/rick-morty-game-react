@@ -7,47 +7,102 @@ export default class GameSounds {
     this.lobbyButtonSound = new Audio('/sounds/lobbyButtonSound.mp3');
     this.lobbyBGM = new Audio('/sounds/lobbyBGM.mp3');
     this.gamePlaySound = new Audio('/sounds/rickAndMortyBGMSound.mp3');
-    this.gameOverSound = new Audio('/sounds/gameOverSound.mp3');
+
+    this.mute = false;
   }
+
   playCardClickSound() {
-    this.cardClickSound.play();
+    if (!this.mute) {
+      const sound = this.cardClickSound.cloneNode();
+      sound.volume = 0.32;
+      sound.play();
+    }
   }
+
   playEasyButtonSound() {
-    this.easyButtonSound.play();
+    if (!this.mute) {
+      const sound = this.easyButtonSound.cloneNode();
+      sound.volume = 0.5;
+      sound.play();
+    }
   }
+
   playMediumButtonSound() {
-    this.mediumButtonSound.play();
+    if (!this.mute) {
+      const sound = this.mediumButtonSound.cloneNode();
+      sound.volume = 0.5;
+      sound.play();
+    }
   }
+
   playHardButtonSound() {
-    this.hardButtonSound.play();
+    if (!this.mute) {
+      const sound = this.hardButtonSound.cloneNode();
+      sound.volume = 0.5;
+      sound.play();
+    }
   }
+
   playLobbyButtonSound() {
-    this.lobbyButtonSound.play();
+    if (!this.mute) {
+      const sound = this.lobbyButtonSound.cloneNode();
+      sound.volume = 0.5;
+      sound.play();
+    }
   }
+
   playLobbyBGM() {
-    this.lobbyBGM.loop = true;
-    this.lobbyBGM.volume = 0.7;
-    this.lobbyBGM.play().catch((err) => {
-      if (err.name !== 'AbortError') {
-        console.error('Error playing lobbyBGM:', err);
-      }
-    });
+    if (!this.mute) {
+      this.lobbyBGM.loop = true;
+      this.lobbyBGM.volume = 0.3;
+      this.lobbyBGM.play().catch(err => {
+        if (err.name !== 'AbortError') {
+          console.error('Error playing lobbyBGM:', err);
+        }
+      });
+    } else {
+      this.pauseLobbyBGM();
+    }
   }
+
   pauseLobbyBGM() {
     this.lobbyBGM.pause();
   }
 
   playGamePlaySound() {
-    this.gamePlaySound.loop = true;
-    this.gamePlaySound.volume = 0.45;
-    this.gamePlaySound.play().catch((err) => {
-      if (err.name !== 'AbortError') {
-        console.error('Error playing gamePlaySound:', err);
-      }
-    });
+    if (!this.mute) {
+      this.gamePlaySound.loop = true;
+      this.gamePlaySound.volume = 0.15;
+      this.gamePlaySound.play().catch(err => {
+        if (err.name !== 'AbortError') {
+          console.error('Error playing gamePlaySound:', err);
+        }
+      });
+    } else {
+      this.pauseGamePlaySound();
+    }
   }
 
   pauseGamePlaySound() {
     this.gamePlaySound.pause();
+  }
+
+  toggleGameSound(muteValue, screenContext) {
+    if (typeof muteValue !== 'boolean') {
+      throw new Error('Mute value must be a boolean value');
+    }
+    this.mute = muteValue;
+
+    if (this.mute) {
+      this.pauseLobbyBGM();
+
+      this.pauseGamePlaySound();
+    } else {
+      if (screenContext === 'playGame') {
+        this.playGamePlaySound();
+      } else if (screenContext === 'gameOver') {
+        this.playLobbyBGM();
+      }
+    }
   }
 }

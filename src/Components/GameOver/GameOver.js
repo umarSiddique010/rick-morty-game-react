@@ -1,51 +1,43 @@
 import React from 'react';
-import Styles from './GameOver.module.css';
-import { motion } from 'motion/react';
-import GameSounds from '../../GameSounds';
+import styles from './GameOver.module.css';
+import {motion} from 'motion/react';
 
 export default class GameOver extends React.Component {
   constructor(props) {
     super(props);
-    this.gameSounds = new GameSounds();
+    this.gameSounds = this.props.gameSounds;
     this.timeOutId = null;
     this.handlePlayAgain = this.handlePlayAgain.bind(this);
     this.handleGoLobby = this.handleGoLobby.bind(this);
     this.handleTotalTimeTaken = this.handleTotalTimeTaken.bind(this);
   }
   render() {
-    const { fetchedData, clickedCards, highestScore, level } = this.props;
+    const {fetchedData, clickedCards, highestScore, level} = this.props;
     return (
       <motion.main
-        className={Styles.game_over}
-        initial={{ opacity: 0, scale: 2 }}
-        animate={{ opacity: 1, scale: 1 }}
+        className={styles.gameOver}
+        initial={{opacity: 0, scale: 2}}
+        animate={{opacity: 1, scale: 1}}
         transition={{
           type: 'spring',
           stiffness: 120,
           damping: 15,
         }}
-        exit={{ opacity: 0, scale: 2 }}
+        exit={{opacity: 0, scale: 2}}
       >
-        {clickedCards.length === 20 ? (
-          <h2>YOU NAILED IT</h2>
-        ) : (
-          <h2>GAME OVER</h2>
-        )}
+        {clickedCards.length === 20 ? <h2>YOU NAILED IT</h2> : <h2>GAME OVER</h2>}
 
-        <div className={Styles.score_board}>
+        <div className={styles.scoreBoard}>
           <h3>
-            Gameplay Duration: <span>{this.handleTotalTimeTaken()}</span>
+            Gameplay Duration:{' '}
+            <span className={styles.timeTaken}>{this.handleTotalTimeTaken()}</span>
           </h3>
 
           <h3>
             difficulty level:{' '}
             <span
               className={
-                level === 'easy'
-                  ? Styles.green_color
-                  : level === 'medium'
-                  ? Styles.yellow_color
-                  : Styles.red_color
+                level === 'easy' ? 'green-color' : level === 'medium' ? 'yellow-color' : 'red-color'
               }
             >
               {level}
@@ -53,13 +45,7 @@ export default class GameOver extends React.Component {
           </h3>
           <h3>
             Highest Score:{' '}
-            <span
-              className={
-                clickedCards.length < highestScore
-                  ? Styles.green_color
-                  : Styles.red_color
-              }
-            >
+            <span className={clickedCards.length < highestScore ? 'green-color' : 'red-color'}>
               {highestScore}
             </span>
           </h3>
@@ -68,10 +54,10 @@ export default class GameOver extends React.Component {
             <span
               className={
                 clickedCards.length < 8
-                  ? Styles.green_color
+                  ? 'green-color'
                   : clickedCards.length >= 8 && clickedCards.length <= 15
-                  ? Styles.yellow_color
-                  : Styles.red_color
+                    ? 'yellow-color'
+                    : 'red-color'
               }
             >
               {clickedCards.length}
@@ -82,11 +68,11 @@ export default class GameOver extends React.Component {
             <span
               className={
                 fetchedData.length - clickedCards.length < 8
-                  ? Styles.red_color
+                  ? 'red-color'
                   : fetchedData.length - clickedCards.length >= 8 &&
-                    fetchedData.length - clickedCards.length <= 15
-                  ? Styles.yellow_color
-                  : Styles.green_color
+                      fetchedData.length - clickedCards.length <= 15
+                    ? 'yellow-color'
+                    : 'green-color'
               }
             >
               {fetchedData.length - clickedCards.length}
@@ -94,7 +80,7 @@ export default class GameOver extends React.Component {
           </h3>
         </div>
 
-        <div className={Styles.button_wrapper}>
+        <div className={styles.buttonWrapper}>
           <button onClick={this.handlePlayAgain}>Play Again</button>
           <button onClick={this.handleGoLobby}>Back to Lobby</button>
         </div>
@@ -133,7 +119,7 @@ export default class GameOver extends React.Component {
   }
 
   handleTotalTimeTaken() {
-    const { timeLeft, level } = this.props;
+    const {timeLeft, level} = this.props;
 
     const totalTimes = {
       easy: 210,

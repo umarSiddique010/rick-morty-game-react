@@ -1,0 +1,32 @@
+.soundToggleButton {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.soundOff,
+.soundOn {
+  height: 15px;
+  width: 15px;
+}
+
+.soundOff * {
+  color: var(--color-mute-off);
+}
+.soundOn * {
+  fill: var(--color-mute-on);
+  color: var(--color-mute-on);
+}
+
+@media (min-width: 1024px) {
+  .toggleMuteGameBtn {
+    padding: 15px;
+  }
+  .soundOff,
+  .soundOn {
+    width: 30px;
+    height: 30px;
+  }
+}

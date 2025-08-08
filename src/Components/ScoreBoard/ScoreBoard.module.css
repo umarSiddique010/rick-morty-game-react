@@ -1,4 +1,4 @@
-.score_board {
+.scoreBoard {
   width: 100%;
   height: fit-content;
   display: flex;
@@ -8,27 +8,32 @@
   margin-left: 15px;
 }
 
-.score_board > h3 {
+.scoreBoard > h3 {
   font-size: 1.5rem;
   font-weight: 1000;
   font-family: fantasy;
-  color: #fff;
-  text-shadow: #000 0.3px 0.3px 2px, #000 -0.3px -0.3px;
+  color: var(--color-white);
+  text-shadow:
+    var(--color-black) 0.3px 0.3px 2px,
+    var(--color-black) -0.3px -0.3px;
   letter-spacing: 4px;
 }
-.score_board span {
+.scoreBoard span {
   display: inline-flex;
-  color: #fff;
+  color: var(--color-white);
   gap: 2px;
   font-size: 1.9rem;
 }
 
-.btn_wrapper {
-  margin-right: 30px;
-  margin-left: -10px;
+.btnWrapper {
+  margin-right: 32px;
+  margin-left: -12px;
 }
 
-.mute_btn {
+.muteToggleBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: none;
   border: none;
   cursor: pointer;
@@ -36,65 +41,58 @@
   transition: all 0.3s ease-in-out;
 }
 
-.mute_btn:hover {
-  transform: scale(1.1);
+.muteToggleBtn:hover {
+  transform: scale(0.8);
 }
 
-.unmute,
-.mute {
-  width: 30px;
-  height: 30px;
+.muteOn,
+.muteOff {
+  width: 35px;
+  height: 35px;
 }
 
-.unmute * {
-  fill: #21be24;
-  color: #21be24;
+.muteOn * {
+  fill: var(--color-mute-on);
+  color: var(--color-mute-on);
 }
 
-.mute * {
-  fill: #880808;
-  color: #880808;
-}
-
-/* UTILITY CLASSES */
-
-.green_color {
-  color: #26e02a !important;
-}
-.yellow_color {
-  color: #dad72a !important;
-}
-.red_color {
-  color: #d91d32 !important;
+.muteOff * {
+  fill: var(--color-mute-off);
+  color: var(--color-mute-off);
 }
 
 @media (min-width: 768px) {
-  .score_board {
+  .scoreBoard {
     margin-left: 0;
   }
-  .score_board > h3 {
+  .scoreBoard > h3 {
     font-size: 1.4rem;
   }
-  .score_board span {
+  .scoreBoard span {
     gap: 5px;
     font-size: 3rem;
   }
-  .btn_wrapper {
+  .btnWrapper {
     margin-left: 50px;
+  }
+  .unmute,
+  .mute {
+    width: 45px;
+    height: 45px;
   }
 }
 
 @media (min-width: 1024px) {
-  .score_board {
+  .scoreBoard {
     justify-content: flex-start;
     width: 70%;
   }
-  .score_board > h3 {
+  .scoreBoard > h3 {
     font-size: 2.1rem;
   }
-  .unmute,
-  .mute {
-    width: 55px;
-    height: 55px;
+  .muteOff,
+  .muteOn {
+    width: 60px;
+    height: 60px;
   }
 }

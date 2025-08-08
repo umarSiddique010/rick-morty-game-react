@@ -1,191 +1,472 @@
+# Rick and Morty Memory Card Game — Class-Based React Architecture, Animated UI, Testing and CI CD integrated
+
 <div align="center">
 
-<img src="/src/assets/Logo.png" alt="Rick and Morty Memory Card Game" width="150" height="150" />
+<img src="./src/assets/Logo.png" alt="Rick and Morty Memory Card Game" width="150" height="150" />
 
-#### A fun and challenging memory card game built with React class components and Rick and Morty API integration
+#### A responsive memory card game built with legacy React class components, featuring dynamic API integration, custom animations, and testing coverage
 
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![Create React App](https://img.shields.io/badge/Create_React_App-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://create-react-app.dev/)
-[![Accessibility](https://img.shields.io/badge/Accessibility-100%25-success?style=for-the-badge)](https://www.w3.org/WAI/fundamentals/accessibility-intro/)
-[![Best Practices](https://img.shields.io/badge/Best_Practices-100%25-success?style=for-the-badge)](https://web.dev/learn/performance/)
-[![API](https://img.shields.io/badge/Rick_and_Morty_API-0052cc?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAASklEQVQoz2NgQAN7MzIwMvBycFhIE8MBFIIggZINPkmYpOkdFmYVEbQQn5DJJmAZON0iCyRjGPyzGKEhKcRiwBqxEIDACfQFL6ytjTyQAAAABJRU5ErkJggg==)](https://rickandmortyapi.com/)
+<!-- TECHNOLOGIES & TOOLS USED -->
+
+## Tech Stack & Tools
+
+[![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Class Components](https://img.shields.io/badge/React-Class_Components-blue?style=flat-square&logo=react)](#)
+[![Create React App](https://img.shields.io/badge/CRA-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://create-react-app.dev/)
+[![Framer Motion](https://img.shields.io/badge/Motion_React-Animations-FF6B6B?style=flat-square&logo=framer)](https://motion.dev/)
+[![Rick and Morty API](https://img.shields.io/badge/Rick_&_Morty_API-0052cc?style=flat-square)](https://rickandmortyapi.com/)
+[![LocalStorage](https://img.shields.io/badge/LocalStorage-State_Persistence-yellowgreen?style=flat-square)](#)
+[![Web Audio API](https://img.shields.io/badge/Sound-Web_Audio_API-orange?style=flat-square)](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
+[![Jest](https://img.shields.io/badge/Jest-Tests-C21325?style=flat-square&logo=jest)](https://jestjs.io/)
+[![Testing Library](https://img.shields.io/badge/React_Testing_Library-8A2BE2?style=flat-square)](https://testing-library.com/)
+[![Prettier](https://img.shields.io/badge/Prettier-Code_Formatter-F7B93E?style=flat-square&logo=prettier)](https://prettier.io/)
+[![ESLint](https://img.shields.io/badge/ESLint-Linter-4B32C3?style=flat-square&logo=eslint)](https://eslint.org/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI/CD-2088FF?style=flat-square&logo=githubactions)](https://docs.github.com/en/actions)
+
+---
 
 </div>
 
-# Rick and Morty Memory Card Game
+A responsive memory card game built with **class-based React components** for learning React fundamentals. Features API integration, animations, and testing. Uses Create React App (deprecated) intentionally to understand legacy React patterns.
 
-A responsive memory card game built with class-based React components, featuring characters from the Rick and Morty API. This project is part of my learning journey through The Odin Project and was created to strengthen my understanding of legacy React architecture and advanced component-based UI logic.
-
----
-
-## Table of Contents
-
-- [Live Demo](#live-demo)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Why Class-Based Components](#why-class-based-components)
-- [Why Create React App](#why-create-react-app)
-- [Project Structure](#project-structure)
-- [Game Rules](#game-rules)
-- [Memory Logic](#memory-logic)
-- [Installation](#installation)
-- [Learning Focus](#learning-focus)
-- [Recruiter Context](#recruiter-context)
-- [Author](#author)
+> **Learning Focus**: Built with class components and lifecycle methods to understand React's core concepts before moving to modern hooks-based development. Includes comprehensive testing with Jest, code quality with ESLint, automated formatting with Prettier, test coverage reporting, and CI/CD pipeline integration to learn professional development workflows..
 
 ---
 
-## Live Demo
+## Performance Metrics
 
-Coming soon
+<div align="center">
 
----
+| Metric             | Score   | Status     |
+| ------------------ | ------- | ---------- |
+| **Accessibility**  | 88/100  | ✅ Good    |
+| **Best Practices** | 100/100 | ✅ Perfect |
+| **SEO**            | 100/100 | ✅ Perfect |
 
-## Features
+_Lighthouse audit results demonstrating production-ready optimization and accessibility compliance_
 
-- **Class-Based React Components:**  
-  Implemented the entire game using legacy class-based components to demonstrate deep understanding of React’s foundational concepts, including lifecycle methods (`componentDidMount`, `componentWillUnmount`, `componentDidUpdate`), state management, and method binding with `.bind()`. This choice showcases versatility and the ability to maintain and refactor older React codebases.
-
-- **API Data Fetching and Error Handling:**  
-  Integrated the Rick and Morty public API to dynamically fetch character data. Implemented robust error handling and loading states to ensure smooth UX even when network requests fail or are delayed.
-
-- **Shuffle Logic and Game State Management:**  
-  Developed an efficient shuffle algorithm to randomize the cards each time a user interacts. Managed game state such as clicked cards, score tracking, and game over conditions entirely within React’s component state and props.
-
-- **Animated UI with `motion/react`:**  
-  Used the `motion/react` library for subtle yet impactful animations on game elements like card entry, scoreboard updates, and timer countdowns. This enhances the user experience with polished visual feedback.
-
-- **Responsive and Accessible Design:**  
-  Crafted the UI with CSS Modules and responsive media queries, ensuring the game works seamlessly across mobile, tablet, and desktop devices. Maintained accessible HTML semantics, such as button roles and alt text for images.
-
-- **Mobile-First Responsive Design:**  
-   Developed with a mobile-first approach, the UI scales gracefully from small mobile screens to large desktops using CSS Modules and media queries. This ensures optimal usability and layout consistency across all devices.
-
-- **Timer and Scoring System:**  
-  Implemented a countdown timer that dynamically adjusts based on difficulty level, enforcing game pacing. The scoring system updates live and persists highest scores, encouraging repeat play and competition.
-
-- **Highest Score and Difficulty Level Persistence with LocalStorage:**  
-  The app saves both the player’s highest score **and selected difficulty level** in `localStorage`. This enables seamless game continuity, allowing players to resume exactly where they left off even after closing or refreshing the browser.
-
-- **Separation of Concerns:**  
-  Structured the project into modular components (`PlayGame`, `CardContainer`, `Card`, `ScoreBoard`, `TimerBoard`) to enhance maintainability, readability, and potential for future feature expansion.
-
-- **Custom Styling with Thematic Fonts and Shadows:**  
-  Applied a custom Rick and Morty themed font and consistent color palette that aligns with the game's concept, improving immersion and visual identity.
-
-## Tech Stack
-
-| Technology         | Purpose                              |
-| ------------------ | ------------------------------------ |
-| React              | UI development with class components |
-| CSS Modules        | Scoped styling per component         |
-| motion/react       | Smooth and performant animations     |
-| Rick and Morty API | External character data              |
-| localStorage       | Persistent high score tracking       |
+</div>
 
 ---
 
-## Why Class-Based Components
+## Components
 
-This project was intentionally built using React class-based components to demonstrate proficiency with legacy React code. Class components are still found in many real-world codebases and understanding their structure, lifecycle methods, and state handling is essential for maintaining or refactoring legacy projects.
+### App Component
+
+- **Location:** `src/App.js`
+- **Purpose:** Root component managing game state, routing, and data persistence
+- **Features:**
+  - Class-based architecture with centralized state management
+  - LocalStorage integration for high scores (`rick_and_morty_memory_game` key)
+  - AnimatePresence for screen transitions
+  - State: `fetchedData`, `shuffleCards`, `clickedCards`, `timeLeft`, `highestScore`, `level`
+  - Level-based timers (Easy: 210s, Medium: 120s, Hard: 40s)
+  - `componentDidUpdate` lifecycle for game completion detection
+  - Method binding in constructor for state setters
+  - Unit tests with mocked Audio API
+
+### StartGame Component
+
+- **Location:** `src/Components/StartGame/`
+- **Files:** `StartGame.js`, `StartGame.module.css`
+- **Purpose:** Main menu with difficulty selection
+- **Features:**
+  - Motion/react page transitions (`motion.main`)
+  - Three difficulty levels with level-specific audio
+  - Resume game functionality
+  - Custom Rick & Morty font integration (`get_schwifty.woff2`)
+  - Responsive design with CSS Modules
+  - Unit tests with React Testing Library
+
+### PlayGame Component
+
+- **Location:** `src/Components/PlayGame/`
+- **Files:** `PlayGame.js`, `PlayGame.module.css`
+- **Purpose:** Main game screen orchestrating game components
+- **Features:**
+  - Container for ScoreBoard, TimerBoard, CardContainer
+  - Audio lifecycle management (starts/pauses music)
+  - Fixed header with backdrop blur effects
+  - Memory leak prevention with timeout cleanup
+  - Responsive layout switching
+  - Unit tests covering audio integration
+
+### GameOver Component
+
+- **Location:** `src/Components/GameOver/`
+- **Files:** `GameOver.js`, `GameOver.module.css`
+- **Purpose:** Post-game results screen
+- **Features:**
+  - Motion/react spring animations (`stiffness: 120, damping: 15`)
+  - Dynamic messages: "YOU NAILED IT" or "GAME OVER"
+  - Score display with MM:SS time formatting
+  - Color-coded performance indicators (green/yellow/red)
+  - "Play Again" and "Back to Lobby" buttons
+  - Proper cleanup in `componentWillUnmount`
+  - Unit tests covering audio and interactions
+
+### CardContainer Component
+
+- **Location:** `src/Components/CardContainer/`
+- **Files:** `CardContainer.js`, `CardContainer.module.css`
+- **Purpose:** Game board managing API data and card rendering
+- **Features:**
+  - Rick and Morty API integration (`https://rickandmortyapi.com/api/character/`)
+  - Fisher-Yates shuffle algorithm for card randomization
+  - Motion/react slide-up animation (`y: 100 → 0, opacity: 0 → 1`)
+  - Race condition prevention using `this.ignore` flag
+  - Loading and error states
+  - Memory leak prevention in `componentWillUnmount`
+  - Unit tests covering API integration and lifecycle
+
+### Card Component
+
+- **Location:** `src/Components/Card/`
+- **Files:** `Card.js`, `Card.module.css`
+- **Purpose:** Individual character cards with click interactions
+- **Features:**
+  - Duplicate click detection and game over triggers
+  - Audio feedback with GameSounds class
+  - CSS 3D transforms on hover (`scale3d(1.1, 1.1, 1.1)`)
+  - Responsive sizing: 150px×200px → 220px×290px → 320px×390px
+  - Data attributes for testing (`data-testid="card"`, `data-id={cardID}`)
+  - Smooth transitions (0.4s card, 0.6s content)
+  - Unit tests covering interactions and game over
+
+### ScoreBoard Component
+
+- **Location:** `src/Components/ScoreBoard/`
+- **Files:** `ScoreBoard.js`, `ScoreBoard.module.css`
+- **Purpose:** Real-time score tracking with audio controls
+- **Features:**
+  - Live score display: current, highest, cards remaining
+  - Color-coded feedback (green/yellow/red)
+  - Motion/react animations with staggered timing
+  - Integrated mute/unmute with React Icons (`GiSoundOn`, `GiSoundOff`)
+  - `componentDidUpdate` for score comparison
+  - Unit tests including audio integration
+
+### TimerBoard Component
+
+- **Location:** `src/Components/TimerBoard/`
+- **Files:** `TimerBoard.js`, `TimerBoard.module.css`
+- **Purpose:** Countdown timer with automatic game over
+- **Features:**
+  - MM:SS format display
+  - Level-based time limits
+  - Automatic game over at zero
+  - Proper interval cleanup using lifecycle methods
+  - Unit tests including timer behavior
+
+### SoundToggleButton Component
+
+- **Location:** `src/Components/SoundToggleButton/`
+- **Files:** `SoundToggleButton.js`, `SoundToggleButton.module.css`
+- **Purpose:** Fixed-position audio toggle button
+- **Features:**
+  - Toggle icons with React Icons (`AiFillSound`, `MdVolumeOff`)
+  - GameSounds class integration
+  - Responsive design for mobile/desktop
+  - Unit tests with React Testing Library
 
 ---
 
-## Why Create React App
+## Audio System
 
-Although Create React App (CRA) is officially deprecated, it was chosen for this project to replicate legacy development environments. CRA remains an excellent learning tool for beginners due to its simplicity and zero-config setup. Using CRA here aligns with the project's overall focus on showcasing legacy practices in a modern context.
+### GameSounds Class
+
+- **Location:** `src/GameSounds.js`
+- **Mock Location:** `src/__mocks__/GameSounds.js`
+- **Purpose:** Centralized audio management system handling all game sounds and background music
+- **Features:**
+  - Audio file management for 7 distinct sound effects: card clicks, difficulty buttons, lobby navigation, and background music
+  - Volume optimization with custom levels: card clicks (0.32), buttons (0.5), lobby BGM (0.3), gameplay BGM (0.15)
+  - Audio cloning using `cloneNode()` for simultaneous sound playback without interruption
+  - Global mute/unmute functionality with boolean state management
+  - Background music loop management with automatic play/pause based on mute state
+  - Error handling for audio playback with `AbortError` filtering to prevent console spam
+  - Context-aware audio switching in `toggleGameSound()` method (playGame vs gameOver contexts)
+  - Type validation for mute parameter with descriptive error messages
+  - Promise-based audio playback with catch handlers for browser autoplay policies
+  - Mock implementation for testing with Jest function mocking
+
+---
+
+## Testing Suite
+
+### Test Files Location: `src/__tests__/`
+
+- `App.test.js` - App component integration and state management
+- `StartGame.test.js` - Menu interactions and difficulty selection
+- `PlayGame.test.js` - Game orchestration and audio lifecycle
+- `GameOver.test.js` - Results display and navigation
+- `CardContainer.test.js` - API integration and shuffle logic
+- `Card.test.js` - Individual card interactions and game over
+- `ScoreBoard.test.js` - Score tracking and audio controls
+- `TimerBoard.test.js` - Timer functionality and cleanup
+- `SoundToggleButton.test.js` - Audio toggle functionality
+
+### Mock Files Location: `src/__mocks__/`
+
+- `GameSounds.js` - Mock audio system for testing
+
+---
+
+## Styling System
+
+### Global Styles
+
+- **Location:** `src/index.css`
+- **Purpose:** Global CSS reset, font imports, and base styles
+- **Features:**
+  - Custom Rick & Morty font integration (`get_schwifty.woff2`)
+  - CSS reset and box-sizing normalization
+  - Root CSS custom properties for theming
+  - Global typography and body styles
+
+### Utility Classes
+
+- **Location:** `src/utility.css`
+- **Purpose:** Reusable utility classes for consistent styling
+- **Features:**
+  - Color utility classes (green/yellow/red performance indicators)
+  - Typography utilities
+  - Spacing and layout helpers
+  - Animation utility classes
+
+### Component Styles (CSS Modules)
+
+Each component has its own `.module.css` file:
+
+- `StartGame.module.css` - Menu styling with animations
+- `PlayGame.module.css` - Game layout with backdrop effects
+- `GameOver.module.css` - Results screen with spring animations
+- `CardContainer.module.css` - Game board layout and responsiveness
+- `Card.module.css` - Individual card styling with hover effects
+- `ScoreBoard.module.css` - Score display and audio controls
+- `TimerBoard.module.css` - Timer display styling
+- `SoundToggleButton.module.css` - Audio toggle button styling
 
 ---
 
 ## Project Structure
 
 ```
-src/
-├── components/
-│   ├── PlayGame/
-│   ├── CardContainer/
-│   ├── Card/
-│   ├── ScoreBoard/
-│   ├── TimerBoard/
-│   ├── StartGame/
-│   └── GameOver/
-├── App.js
-├── index.js
-├── index.css
-└── assets/
-    └── get_schwifty.woff2
+rick-and-morty-card-game-react/
+├── .github/
+│   └── workflows/
+│       └── ci.yml                  # GitHub Actions CI/CD pipeline
+├── public/
+│   ├── sounds/
+│   │   └── [audio files]
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── Components/
+│   │   ├── App.js
+│   │   ├── StartGame/
+│   │   │   ├── StartGame.js
+│   │   │   └── StartGame.module.css
+│   │   ├── PlayGame/
+│   │   │   ├── PlayGame.js
+│   │   │   └── PlayGame.module.css
+│   │   ├── GameOver/
+│   │   │   ├── GameOver.js
+│   │   │   └── GameOver.module.css
+│   │   ├── CardContainer/
+│   │   │   ├── CardContainer.js
+│   │   │   └── CardContainer.module.css
+│   │   ├── Card/
+│   │   │   ├── Card.js
+│   │   │   └── Card.module.css
+│   │   ├── ScoreBoard/
+│   │   │   ├── ScoreBoard.js
+│   │   │   └── ScoreBoard.module.css
+│   │   ├── TimerBoard/
+│   │   │   ├── TimerBoard.js
+│   │   │   └── TimerBoard.module.css
+│   │   └── SoundToggleButton/
+│   │       ├── SoundToggleButton.js
+│   │       └── SoundToggleButton.module.css
+│   ├── __mocks__/
+│   │   └── GameSounds.js           # Mock audio for testing
+│   ├── __tests__/
+│   │   ├── App.test.js
+│   │   ├── StartGame.test.js
+│   │   ├── PlayGame.test.js
+│   │   ├── GameOver.test.js
+│   │   ├── CardContainer.test.js
+│   │   ├── Card.test.js
+│   │   ├── ScoreBoard.test.js
+│   │   ├── TimerBoard.test.js
+│   │   └── SoundToggleButton.test.js
+│   ├── assets/
+│   │   ├── get_schwifty.woff2
+│   │   ├── Logo.png
+│   │   └── [other assets]
+│   ├── index.js
+│   ├── index.css
+│   ├── utility.css
+│   └── GameSounds.js
+├── coverage/                       # Test coverage reports
+├── node_modules/
+├── .eslintignore                   # ESLint ignore patterns
+├── .prettierignore                 # Prettier ignore patterns
+├── .prettierrc                     # Prettier configuration
+├── babel.config.js                 # Babel configuration for Jest
+├── eslint.config.mjs               # ESLint configuration
+├── jest.assetMock.js               # Jest asset mocking
+├── jest.config.mjs                 # Jest configuration
+├── jest.setup.js                   # Jest test environment setup
+├── jest.styleMock.js               # Jest CSS modules mocking
+├── .gitignore
+├── package.json                    # Dependencies and scripts
+├── package-lock.json
+└── README.md
 ```
+
+---
+
+## Tech Stack
+
+### Core Technologies
+
+| Technology         | Purpose                                                                   |
+| ------------------ | ------------------------------------------------------------------------- |
+| React 19           | UI development with class components                                      |
+| motion/react       | Page transitions and animations                                           |
+| CSS Modules        | Scoped styling per component                                              |
+| React Icons        | Icon components (`GiSoundOn`, `GiSoundOff`, `AiFillSound`, `MdVolumeOff`) |
+| Rick and Morty API | External character data                                                   |
+
+### Testing & Quality Assurance
+
+| Technology                  | Purpose                                   |
+| --------------------------- | ----------------------------------------- |
+| Jest                        | Unit testing framework with custom config |
+| React Testing Library       | Component testing utilities               |
+| @testing-library/user-event | User interaction testing                  |
+| Coverage Reports            | Test coverage tracking and reporting      |
+
+### Code Quality & Formatting
+
+| Technology | Purpose                              |
+| ---------- | ------------------------------------ |
+| ESLint     | Code quality and error detection     |
+| Prettier   | Consistent code formatting           |
+| Babel      | JavaScript transpilation for testing |
+
+### CI/CD & Automation
+
+| Technology     | Purpose                      |
+| -------------- | ---------------------------- |
+| GitHub Actions | Automated CI/CD pipeline     |
+| Node.js 20     | Runtime environment          |
+| npm scripts    | Task automation and workflow |
+
+---
+
+## Features
+
+### Core Game Features
+
+- **Class-Based React** - Built with class components and lifecycle methods for learning React fundamentals
+- **API Integration** - Rick and Morty API with error handling and loading states
+- **Audio System** - Custom GameSounds class with mute/unmute functionality
+- **Animations** - Motion/react for page transitions and UI animations
+- **Responsive Design** - CSS Modules with mobile-first approach
+- **Game Logic** - Card shuffle algorithm, duplicate detection, timer system
+- **LocalStorage** - Persistent high scores and game state
+
+### Development & Quality Features
+
+- **Automated Testing** - Jest with React Testing Library and 100% coverage tracking
+- **Code Quality** - ESLint with React, accessibility, and testing plugins
+- **Code Formatting** - Prettier with consistent style enforcement
+- **CI/CD Pipeline** - GitHub Actions with automated testing, linting, and formatting checks
+- **Modern Tooling** - ES modules, React 19, and professional development workflow
+- **Error Prevention** - Comprehensive linting rules and automated quality gates
 
 ---
 
 ## Game Rules
 
-1. Click each card only once.
-2. Cards reshuffle after every click.
-3. A repeated click ends the game.
-4. Complete all unique selections to win.
-5. Beat the timer based on your selected difficulty level.
+1. **Choose Difficulty:** Select Easy, Medium, or Hard to begin
+2. **Beat the Clock:** Each difficulty has a different time limit
+3. **Click Unique Cards:** Click each card only once - no repeats!
+4. **Cards Reshuffle:** Cards randomize after every click
+5. **Game Over Conditions:** Game ends if you repeat a card OR time runs out
+6. **Win Condition:** Complete all unique selections before time expires
+7. **Track Progress:** Monitor your score and try to beat your highest score
 
 ---
 
-## Memory Logic
+## Installation & Development
 
-- Game state tracks clicked cards and updates score.
-- A card click checks for duplicates:
-  - If new: card is stored, score is updated, cards reshuffle.
-  - If duplicate: game over screen is triggered.
-- High score **and difficulty level** update in real-time and persist via `localStorage`, enabling the “Resume” feature to restore the player’s progress and settings on page reload or return visits.
-- Timer countdown is conditionally rendered based on difficulty.
+### Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/umarSiddique010/rick-and-morty-card-game.git
+cd rick-and-morty-card-game
+
+# Install dependencies
+npm install --legacy-peer-deps
+
+# Start development server
+npm start
+```
+
+### Available Scripts
+
+#### Development
+
+```bash
+npm start                    # Start development server
+npm run build               # Create production build
+npm run eject               # Eject from Create React App (irreversible)
+```
+
+#### Testing
+
+```bash
+npm test                    # Run tests in watch mode
+npm run test:coverage       # Run tests with coverage report
+```
+
+#### Code Quality
+
+```bash
+npm run lint                # Check code with ESLint
+npm run lint:fix            # Auto-fix ESLint issues
+npm run format              # Format code with Prettier
+npm run format:check        # Check if code is formatted
+```
+
+### CI/CD Pipeline
+
+The project includes automated GitHub Actions workflow that runs on every push and pull request:
+
+- ✅ **Code Linting** - ESLint checks for code quality
+- ✅ **Format Validation** - Prettier ensures consistent formatting
+- ✅ **Automated Testing** - Jest runs full test suite with coverage
+- ✅ **Coverage Reports** - Uploads test coverage artifacts
+
+### Development Workflow
+
+1. **Write Code** → 2. **Auto-format** → 3. **Lint Check** → 4. **Run Tests** → 5. **Commit** → 6. **CI Validation**
 
 ---
 
-## Installation
+## Contact
 
-1. Clone the repo:
+**Md Umar Siddique**
 
-   ```bash
-   git clone https://github.com/umarSiddique010/rick-and-morty-memory-card-game.git
-   ```
+<div align="center">
 
-2. Navigate to the project directory:
+[![GitHub](https://img.shields.io/badge/@umarSiddique010-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/umarSiddique010)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Md%20Umar%20Siddique-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/md-umar-siddique-1519b12a4/)
+[![npm](https://img.shields.io/badge/npm-@umarsiddique010-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/~umarsiddique010)
+[![Email](https://img.shields.io/badge/us70763@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:us70763@gmail.com)
 
-   ```bash
-   cd rick-and-morty-memory-card-game
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Start the development server:
-
-   ```bash
-   npm start
-   ```
-
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to play the game.
-
----
-
-## Learning Focus
-
-- Practicing state management and component logic in class-based React
-- Understanding legacy lifecycle methods such as `componentDidMount` and `componentDidUpdate`
-- Using `localStorage` for persistent data in a React environment
-- Structuring CSS Modules for reusable, scoped component styling
-- Building and organizing a React project using legacy tooling (CRA)
-- Integrating third-party animation libraries with React
-
----
-
-## Recruiter Context
-
-This project was designed to demonstrate my ability to work with legacy React codebases and replicate older development environments. It showcases my understanding of class components, state and props management, lifecycles, animations, responsive layouts, and external API integration. By structuring this project intentionally using deprecated tools and patterns, I aimed to show adaptability and a well-rounded approach to both modern and older stacks.
-
----
-
-## Author
-
-[Md Umar Siddique](https://github.com/umarSiddique010)
+</div>

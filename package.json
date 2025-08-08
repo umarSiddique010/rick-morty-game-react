@@ -1,7 +1,21 @@
 {
   "name": "memory-card-game",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
+  "type": "module",
+  "description": "A Rick and Morty-themed memory card game built with React using class-based components. Match characters, race against the clock, and challenge your memory!",
+  "keywords": [
+    "Rick and Morty",
+    "memory game",
+    "card game",
+    "React",
+    "class-based components",
+    "online game",
+    "puzzle",
+    "free game",
+    "memory challenge"
+  ],
+  "author": "Md Umar Siddique",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -18,13 +32,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "test:coverage": "jest --coverage",
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "browserslist": {
     "production": [
@@ -37,5 +50,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
+    "@eslint/js": "^9.32.0",
+    "babel-jest": "^30.0.5",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-testing-library": "^7.6.3",
+    "identity-obj-proxy": "^3.0.0",
+    "prettier": "^3.6.2"
   }
 }

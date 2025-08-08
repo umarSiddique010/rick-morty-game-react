@@ -2,14 +2,13 @@ import React from 'react';
 import CardContainer from '../CardContainer/CardContainer';
 import ScoreBoard from '../ScoreBoard/ScoreBoard';
 import TimerBoard from '../TimerBoard/TimerBoard';
-import Styles from './PlayGame.module.css';
-import { motion } from 'motion/react';
-import GameSounds from '../../GameSounds';
+import styles from './PlayGame.module.css';
+import {motion} from 'motion/react';
 
 export default class PlayGame extends React.Component {
   constructor(props) {
     super(props);
-    this.gameSounds = new GameSounds();
+    this.gameSounds = this.props.gameSounds;
     this.timeOutId = null;
   }
 
@@ -34,8 +33,8 @@ export default class PlayGame extends React.Component {
 
     return (
       <motion.main
-        className={Styles.play_game}
-        initial={{ opacity: 0 }}
+        className={styles.playGame}
+        initial={{opacity: 0}}
         animate={{
           opacity: 1,
         }}
@@ -44,7 +43,7 @@ export default class PlayGame extends React.Component {
           ease: 'easeInOut',
         }}
       >
-        <header className={Styles.header}>
+        <header className={styles.header}>
           <ScoreBoard
             fetchedData={fetchedData}
             clickedCards={clickedCards}
@@ -72,6 +71,7 @@ export default class PlayGame extends React.Component {
           setErrorState={setErrorState}
           setShuffleCardsState={setShuffleCardsState}
           setClickedCards={setClickedCards}
+          gameSounds={this.gameSounds}
         />
       </motion.main>
     );

@@ -1,39 +1,40 @@
 import React from 'react';
-import Styles from './Card.module.css';
-import GameSounds from '../../GameSounds';
+import styles from './Card.module.css';
+
 export default class Card extends React.Component {
   constructor(props) {
     super(props);
-    this.gameSounds = new GameSounds();
+    this.gameSounds = this.props.gameSounds;
     this.handleClick = this.handleClick.bind(this);
   }
 
   render() {
-    const { charImg, charName, cardID } = this.props;
+    const {charImg, charName, cardID} = this.props;
 
     return (
       <button
         data-id={cardID}
-        onClick={(e) => this.handleClick(e)}
-        className={Styles.cards}
+        data-testid="card"
+        onClick={e => this.handleClick(e)}
+        className={styles.cards}
       >
-        <div className={Styles.char_img_container}>
+        <div className={styles.charImgContainer}>
           <img src={charImg} alt={charName} />
         </div>
 
-        <h2 className={Styles.char_name}>{charName}</h2>
+        <h2 className={styles.charName}>{charName}</h2>
       </button>
     );
   }
 
   handleClick(e) {
-    this.props.shuffleFetchedValue();
     const dataID = Number(e.currentTarget.dataset.id);
-    this.gameSounds.playCardClickSound();
     if (this.props.clickedCards.includes(dataID)) {
       this.props.setGameOver(true);
     } else {
+      this.gameSounds.playCardClickSound();
       this.props.setClickedCards(dataID);
+      this.props.shuffleFetchedValue();
     }
   }
 }

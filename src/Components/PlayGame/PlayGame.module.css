@@ -1,4 +1,4 @@
-.play_game {
+.playGame {
   margin-top: 18rem;
 }
 
@@ -17,13 +17,14 @@
   top: 0;
   right: 0;
   left: 0;
-  background-color: #4193404d;
+  z-index: 100;
+  background-color: var(--color-header-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 @media (min-width: 768px) {
-  .play_game {
+  .playGame {
     margin-top: 12rem;
   }
   .header {
@@ -33,7 +34,7 @@
 }
 
 @media (min-width: 1024px) {
-  .play_game {
+  .playGame {
     margin-top: 10rem;
   }
 }
