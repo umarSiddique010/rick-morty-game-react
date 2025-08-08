@@ -1,4 +1,4 @@
-# Rick and Morty Memory Card Game — Class-Based React Architecture, Animated UI, Testing and CI CD integrated
+# Rick and Morty Memory Card Game — Class-Based React Architecture, Animated UI, Testing & CI CD integrated
 
 <div align="center">
 
@@ -252,7 +252,7 @@ Each component has its own `.module.css` file:
 ## Project Structure
 
 ```
-rick-and-morty-card-game-react/
+rick-morty-game-react/
 ├── .github/
 │   └── workflows/
 │       └── ci.yml                  # GitHub Actions CI/CD pipeline
@@ -406,9 +406,13 @@ rick-and-morty-card-game-react/
 ### Quick Start
 
 ```bash
-# Clone the repository
-git clone https://github.com/umarSiddique010/rick-and-morty-card-game.git
-cd rick-and-morty-card-game
+Using SSH:
+git clone git@github.com:umarSiddique010/rick-morty-game-react.git
+
+Or using HTTPS:
+git clone https://github.com/umarSiddique010/rick-morty-game-react.git
+
+cd rick-morty-game-react
 
 # Install dependencies
 npm install --legacy-peer-deps
