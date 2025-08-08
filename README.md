@@ -321,6 +321,7 @@ rick-morty-game-react/
 ├── jest.styleMock.js               # Jest CSS modules mocking
 ├── .gitignore
 ├── package.json                    # Dependencies and scripts
+├── vercel.json                     
 ├── package-lock.json
 └── README.md
 ```
