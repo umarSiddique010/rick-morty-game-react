@@ -6,11 +6,7 @@
 
 #### A responsive memory card game built with legacy React class components, featuring dynamic API integration, custom animations, and testing coverage
 
-
- 
-🎮 **[Play Now!](https://rick-morty-game-react.vercel.app/)**  
-
-
+🎮 **[Play Now!](https://rick-morty-game-react.vercel.app/)**
 
 <!-- TECHNOLOGIES & TOOLS USED -->
 
