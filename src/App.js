@@ -4,7 +4,7 @@ import StartGame from './Components/StartGame/StartGame';
 import GameOver from './Components/GameOver/GameOver';
 import SoundToggleButton from './Components/SoundToggleButton/SoundToggleButton';
 import {AnimatePresence} from 'motion/react';
-import GameSounds from './GameSounds';
+import GameSounds from './GameSounds.js';
 
 export default class App extends React.Component {
   constructor(props) {
