@@ -1,7 +1,7 @@
 import React from 'react';
-import CardContainer from '../CardContainer/CardContainer';
-import ScoreBoard from '../ScoreBoard/ScoreBoard';
-import TimerBoard from '../TimerBoard/TimerBoard';
+import CardContainer from '../CardContainer/CardContainer.js';
+import ScoreBoard from '../ScoreBoard/ScoreBoard.js';
+import TimerBoard from '../TimerBoard/TimerBoard.js';
 import styles from './PlayGame.module.css';
 import {motion} from 'motion/react';
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import PlayGame from './Components/PlayGame/PlayGame';
-import StartGame from './Components/StartGame/StartGame';
-import GameOver from './Components/GameOver/GameOver';
-import SoundToggleButton from './Components/SoundToggleButton/SoundToggleButton';
+import PlayGame from './Components/PlayGame/PlayGame.js';
+import StartGame from './Components/StartGame/StartGame.js';
+import GameOver from './Components/GameOver/GameOver.js';
+import SoundToggleButton from './Components/SoundToggleButton/SoundToggleButton.js';
 import {AnimatePresence} from 'motion/react';
 import GameSounds from './GameSounds.js';
 

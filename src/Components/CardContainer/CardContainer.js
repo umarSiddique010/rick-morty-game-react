@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../Card/Card';
+import Card from '../Card/Card.js';
 import styles from './CardContainer.module.css';
 import {motion} from 'motion/react';
 export default class CardContainer extends React.Component {
