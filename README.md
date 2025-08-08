@@ -6,6 +6,12 @@
 
 #### A responsive memory card game built with legacy React class components, featuring dynamic API integration, custom animations, and testing coverage
 
+
+ 
+🎮 **[Play Now!](https://rick-morty-game-react.vercel.app/)**  
+
+
+
 <!-- TECHNOLOGIES & TOOLS USED -->
 
 ## Tech Stack & Tools
@@ -22,6 +28,7 @@
 [![Prettier](https://img.shields.io/badge/Prettier-Code_Formatter-F7B93E?style=flat-square&logo=prettier)](https://prettier.io/)
 [![ESLint](https://img.shields.io/badge/ESLint-Linter-4B32C3?style=flat-square&logo=eslint)](https://eslint.org/)
 [![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI/CD-2088FF?style=flat-square&logo=githubactions)](https://docs.github.com/en/actions)
+[![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?style=flat-square&logo=vercel)](https://rick-morty-game-react.vercel.app/)
 
 ---
 
