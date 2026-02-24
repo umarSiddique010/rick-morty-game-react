@@ -20,36 +20,39 @@
 </div>
 
 ---
+
 ---
 
 ## 🚀 Features & Architecture
 
 ### 🧐 The Philosophy: Why Class Components?
+
 In an era dominated by Functional Components and Hooks, this project serves as a **deliberate architectural showcase** of core React fundamentals. By strictly utilizing Class Components, this codebase demonstrates:
 
-*   **Explicit Lifecycle Management:** Granular control over component behavior using `componentDidMount` (for API calls and timers), `componentDidUpdate` (for score tracking and game-over logic), and `componentWillUnmount` (for preventing memory leaks by clearing intervals and audio streams).
-*   **Context Binding & `this`:** A deep understanding of JavaScript scope, `this` binding in constructors, and event handler management without relying on `useCallback`.
-*   **State Architecture:** `App.js` acts as the single source of truth, lifting state up and passing callbacks down to children like `ScoreBoard` and `Card`, ensuring unidirectional data flow.
+- **Explicit Lifecycle Management:** Granular control over component behavior using `componentDidMount` (for API calls and timers), `componentDidUpdate` (for score tracking and game-over logic), and `componentWillUnmount` (for preventing memory leaks by clearing intervals and audio streams).
+- **Context Binding & `this`:** A deep understanding of JavaScript scope, `this` binding in constructors, and event handler management without relying on `useCallback`.
+- **State Architecture:** `App.js` acts as the single source of truth, lifting state up and passing callbacks down to children like `ScoreBoard` and `Card`, ensuring unidirectional data flow.
 
 ### ⚡ Core Functionality
-*   **REST API Integration:** Asynchronously fetches character data from the **Rick and Morty API**, handling loading states and errors gracefully within the `CardContainer` lifecycle.
-*   **Fluid Animations:** Utilizes **Framer Motion** (`motion/react`) to orchestrate complex entrance and exit animations for the game board, modals, and score updates.
-*   **Immersive Audio Engine:** Features a dedicated `GameSounds.js` class that manages `Audio` instances, background music loops, and sound effects with a global mute toggle.
-*   **Responsive UI:** Built with **CSS Modules** to ensure locally scoped styles, preventing class name collisions while maintaining a fully responsive design across devices.
+
+- **REST API Integration:** Asynchronously fetches character data from the **Rick and Morty API**, handling loading states and errors gracefully within the `CardContainer` lifecycle.
+- **Fluid Animations:** Utilizes **Framer Motion** (`motion/react`) to orchestrate complex entrance and exit animations for the game board, modals, and score updates.
+- **Immersive Audio Engine:** Features a dedicated `GameSounds.js` class that manages `Audio` instances, background music loops, and sound effects with a global mute toggle.
+- **Responsive UI:** Built with **CSS Modules** to ensure locally scoped styles, preventing class name collisions while maintaining a fully responsive design across devices.
 
 ---
 
 ## 🛠 Tech Stack
 
-| Category | Technology |
-| :--- | :--- |
-| **Core Framework** | React 19 (Class-Based Architecture) |
-| **Language** | JavaScript (ES6+) |
-| **Styling** | CSS Modules, Utility Classes |
-| **Animation** | Framer Motion (`motion/react`) |
-| **Testing** | Jest, React Testing Library |
-| **Linting & Formatting** | ESLint, Prettier |
-| **CI/CD** | GitHub Actions |
+| Category                 | Technology                          |
+| :----------------------- | :---------------------------------- |
+| **Core Framework**       | React 19 (Class-Based Architecture) |
+| **Language**             | JavaScript (ES6+)                   |
+| **Styling**              | CSS Modules, Utility Classes        |
+| **Animation**            | Framer Motion (`motion/react`)      |
+| **Testing**              | Jest, React Testing Library         |
+| **Linting & Formatting** | ESLint, Prettier                    |
+| **CI/CD**                | GitHub Actions                      |
 
 ---
 
@@ -57,12 +60,12 @@ In an era dominated by Functional Components and Hooks, this project serves as a
 
 This project employs a "Test-Driven mindset" with a robust suite covering Unit, Integration, and Logic tests.
 
-*   **Unit Testing:** Individual components like `Card.js` and `TimerBoard.js` are tested in isolation to ensure they render props correctly and fire events as expected.
-*   **Integration Testing:** `App.test.js` simulates full user flows—starting the game, clicking cards, and triggering game-over states—to verify component interaction.
-*   **Mocking:**
-    *   **Audio API:** The `GameSounds.js` class is fully mocked in `src/__mocks__/GameSounds.js` to prevent audio playback issues in the test environment.
-    *   **Fetch API:** Global `fetch` is mocked to simulate API responses for deterministic testing of the `CardContainer`.
-*   **Coverage:** The pipeline enforces high test coverage, runnable via `npm run test:coverage`.
+- **Unit Testing:** Individual components like `Card.js` and `TimerBoard.js` are tested in isolation to ensure they render props correctly and fire events as expected.
+- **Integration Testing:** `App.test.js` simulates full user flows—starting the game, clicking cards, and triggering game-over states—to verify component interaction.
+- **Mocking:**
+  - **Audio API:** The `GameSounds.js` class is fully mocked in `src/__mocks__/GameSounds.js` to prevent audio playback issues in the test environment.
+  - **Fetch API:** Global `fetch` is mocked to simulate API responses for deterministic testing of the `CardContainer`.
+- **Coverage:** The pipeline enforces high test coverage, runnable via `npm run test:coverage`.
 
 ---
 
@@ -82,12 +85,14 @@ Code quality is enforced via a strict **GitHub Actions** pipeline defined in `.g
 Follow these steps to run the application locally.
 
 ### Prerequisites
-*   Node.js (v18 or v20 recommended)
-*   npm
+
+- Node.js (v18 or v20 recommended)
+- npm
 
 ### Installation
 
 1.  **Clone the repository:**
+
     ```bash
     git clone https://github.com/umarSiddique010/rick-morty-game-react.git
 
@@ -95,38 +100,40 @@ Follow these steps to run the application locally.
     ```
 
 2.  **Install dependencies:**
-    *Note: The project uses React 19 with some legacy dependencies.*
+    _Note: The project uses React 19 with some legacy dependencies._
+
     ```bash
     npm install --legacy-peer-deps
     ```
 
 3.  **Start the development server:**
+
     ```bash
     npm start
     ```
 
-4. **Run Quality Checks**
+4.  **Run Quality Checks**
 
-      ```bash
-      # Run Linter
-      npm run lint
+    ```bash
+    # Run Linter
+    npm run lint
 
-      # Check Formatting
-      npm run format:check
+    # Check Formatting
+    npm run format:check
 
-      # Run Test Suite with Coverage
-      npm run test:coverage
-      ```
+    # Run Test Suite with Coverage
+    npm run test:coverage
+    ```
 
 ### Development Commands
 
-| Command | Description |
-| :--- | :--- |
-| `npm start` | Runs the app in development mode at `http://localhost:3000`. |
-| `npm run test` | Launches the test runner in interactive watch mode. |
-| `npm run test:coverage` | Runs tests once and generates a coverage report. |
-| `npm run lint` | Checks the codebase for linting errors. |
-| `npm run format` | Auto-formats code using Prettier. |
+| Command                 | Description                                                  |
+| :---------------------- | :----------------------------------------------------------- |
+| `npm start`             | Runs the app in development mode at `http://localhost:3000`. |
+| `npm run test`          | Launches the test runner in interactive watch mode.          |
+| `npm run test:coverage` | Runs tests once and generates a coverage report.             |
+| `npm run lint`          | Checks the codebase for linting errors.                      |
+| `npm run format`        | Auto-formats code using Prettier.                            |
 
 ---
 
@@ -157,6 +164,7 @@ src/
 ## 🤝 Contributing
 
 Contributions are welcome! Please follow these steps:
+
 1.  Fork the repository.
 2.  Create a feature branch (`git checkout -b feature/AmazingFeature`).
 3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
@@ -168,6 +176,7 @@ Contributions are welcome! Please follow these steps:
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
+
 <div align="center">
   <p><strong>Developed by Md Umar Siddique</strong></p>
 
