@@ -114,11 +114,15 @@ export default class ScoreBoard extends React.Component {
           </motion.span>
         </h3>
         <div className={styles.btnWrapper}>
-          <button className={styles.muteToggleBtn} onClick={this.handleMute}>
+          <button
+            aria-label="Toggle sound"
+            className={styles.muteToggleBtn}
+            onClick={this.handleMute}
+          >
             {this.state.mute ? (
-              <GiSoundOff className={styles.muteOff} />
+              <GiSoundOff aria-label="Sound off" className={styles.muteOff} />
             ) : (
-              <GiSoundOn className={styles.muteOn} />
+              <GiSoundOn aria-label="Sound on" className={styles.muteOn} />
             )}
           </button>
         </div>

@@ -3,7 +3,7 @@ import styles from './SoundToggleButton.module.css';
 import {AiFillSound} from 'react-icons/ai';
 import {MdVolumeOff} from 'react-icons/md';
 
-export default class GameMuteBtn extends Component {
+export default class SoundToggleButton extends Component {
   constructor(props) {
     super(props);
     this.gameSounds = this.props.gameSounds;
@@ -15,11 +15,15 @@ export default class GameMuteBtn extends Component {
 
   render() {
     return (
-      <button className={styles.soundToggleButton} onClick={this.handleMuteToggle}>
+      <button
+        aria-label="Toggle sound"
+        className={styles.soundToggleButton}
+        onClick={this.handleMuteToggle}
+      >
         {this.state.mute ? (
-          <MdVolumeOff data-testid="soundOff" className={styles.soundOff} />
+          <MdVolumeOff aria-label="Sound off" data-testid="soundOff" className={styles.soundOff} />
         ) : (
-          <AiFillSound data-testid="soundOn" className={styles.soundOn} />
+          <AiFillSound aria-label="Sound on" data-testid="soundOn" className={styles.soundOn} />
         )}
       </button>
     );

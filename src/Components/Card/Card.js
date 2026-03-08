@@ -15,6 +15,7 @@ export default class Card extends React.Component {
       <button
         data-id={cardID}
         data-testid="card"
+        aria-label={`Card of ${charName}`}
         onClick={e => this.handleClick(e)}
         className={styles.cards}
       >

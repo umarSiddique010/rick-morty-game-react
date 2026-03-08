@@ -1,6 +1,4 @@
-# <img height="25" src="./src/assets/Logo.png" alt="Logo"> Rick & Morty Memory Game
-
-<hr/>
+# <img height="45" src="./src/assets/Logo.png" alt="Logo" style="margin-bottom:-11px;"> Rick & Morty Memory Game
 
 <div align="center">
 

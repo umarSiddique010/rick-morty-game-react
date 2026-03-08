@@ -1,0 +1,7 @@
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running ESLint and Prettier on staged files..."
+npx lint-staged
+
+echo "Running tests..."
+CI=true npm test
