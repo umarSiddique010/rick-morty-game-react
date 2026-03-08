@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/rick-morty-game-react/static/css/main.becf51b6.css",
+    "main.js": "/rick-morty-game-react/static/js/main.0b6351fd.js",
+    "static/js/453.ce0c0e7d.chunk.js": "/rick-morty-game-react/static/js/453.ce0c0e7d.chunk.js",
+    "static/media/rick-and-morty-wallpaper-photo.webp": "/rick-morty-game-react/static/media/rick-and-morty-wallpaper-photo.e1b55367920f32272641.webp",
+    "static/media/get_schwifty.woff2": "/rick-morty-game-react/static/media/get_schwifty.435441ffd028fa8e18e8.woff2",
+    "index.html": "/rick-morty-game-react/index.html",
+    "main.becf51b6.css.map": "/rick-morty-game-react/static/css/main.becf51b6.css.map",
+    "main.0b6351fd.js.map": "/rick-morty-game-react/static/js/main.0b6351fd.js.map",
+    "453.ce0c0e7d.chunk.js.map": "/rick-morty-game-react/static/js/453.ce0c0e7d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.becf51b6.css",
+    "static/js/main.0b6351fd.js"
+  ]
+}
