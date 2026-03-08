@@ -6,7 +6,7 @@
 
 # A React Class-Component Masterclass
 
-**A production-grade React application engineered to demonstrate a deep understanding of core React fundamentals. Built entirely with Class-Based Components to showcase explicit lifecycle management, rigorous state architecture, and enterprise-level CI/CD pipelines.**
+**A production-grade React application engineered to demonstrate a deep understanding of core React fundamentals. Built entirely with Class-Based Components to showcase explicit lifecycle management, rigorous state architecture, and enterprise-level CI pipelines and seamless deployment via GitHub Pages.**
 
 [![React](https://img.shields.io/badge/React-Class_Components-61DAFB?logo=react&logoColor=black)](https://reactjs.org/)
 [![Jest](https://img.shields.io/badge/Jest-Tested-C21325?logo=jest&logoColor=white)](https://jestjs.io/)
@@ -50,7 +50,7 @@ In an era dominated by Functional Components and Hooks, this project serves as a
 | **Animation**            | Framer Motion (`motion/react`)      |
 | **Testing**              | Jest, React Testing Library         |
 | **Linting & Formatting** | ESLint, Prettier                    |
-| **CI/CD**                | GitHub Actions                      |
+| **CI & Hosting**         | GitHub Actions, GitHub Pages        |
 
 ---
 
@@ -67,7 +67,7 @@ This project employs a "Test-Driven mindset" with a robust suite covering Unit, 
 
 ---
 
-## ⚙️ CI/CD & Quality Assurance
+## ⚙️ CI, Quality Assurance & Deployment
 
 Code quality is enforced via a strict **GitHub Actions** pipeline defined in `.github/workflows/ci.yml`. No code reaches production without passing these gates:
 
@@ -75,6 +75,7 @@ Code quality is enforced via a strict **GitHub Actions** pipeline defined in `.g
 2.  **Linting:** Runs `npm run lint` (ESLint) to catch static errors and enforce coding standards.
 3.  **Formatting:** Runs `npm run format:check` (Prettier) to ensure stylistic consistency.
 4.  **Test Suite:** Executes `npm run test:coverage` to verify business logic and prevent regressions.
+5.  **Deployment (GitHub Pages):** Utilizes `gh-pages` for controlled manual deployments. This leverages GitHub's native ecosystem to securely and freely host the static React build, ensuring only fully-tested code reaches production.
 
 ---
 
@@ -94,7 +95,7 @@ Follow these steps to run the application locally.
     ```bash
     git clone https://github.com/umarSiddique010/rick-morty-game-react.git
 
-    cd rick-and-morty-memory-game
+    cd rick-morty-game-react
     ```
 
 2.  **Install dependencies:**
@@ -198,7 +199,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
   <p>
     <strong>Project Links:</strong> 
-    <a href="https://rick-morty-game-react.vercel.app/">🚀 Live Demo</a> • 
+    <a href="https://umarsiddique010.github.io/rick-morty-game-react/">🚀 Live Demo</a> • 
     <a href="https://github.com/umarSiddique010/rick-morty-game-react/issues">🐞 Report an Issue</a> • 
     <a href="https://github.com/umarSiddique010/rick-morty-game-react">⭐ Star this Repo</a>
   </p>
