@@ -1,206 +1,187 @@
-# <img height="45" src="./src/assets/Logo.png" alt="Logo" style="margin-bottom:-11px;"> Rick & Morty Memory Game
+# <img height="45" src="./public/favicon.ico" alt="Logo" style="margin-bottom:-11px;"> Rick & Morty Memory Game
 
 <div align="center">
 
-![Project Banner](https://placehold.co/1200x300/183b4e/ffffff?text=Rick+%26+Morty+Memory+Game)
+### A React Class-Component Masterclass.
 
-# A React Class-Component Masterclass
+<p align="center">
+  <strong>A production-grade React application engineered to demonstrate a deep understanding of core React fundamentals. Built entirely with Class-Based Components to showcase explicit lifecycle management, rigorous state architecture, and enterprise-level CI pipelines.</strong>
+</p>
 
-**A production-grade React application engineered to demonstrate a deep understanding of core React fundamentals. Built entirely with Class-Based Components to showcase explicit lifecycle management, rigorous state architecture, and enterprise-level CI pipelines and seamless deployment via GitHub Pages.**
+<p align="center">
+  <a href="https://umarsiddique010.github.io/rick-morty-game-react/"><strong>View Live Production Deployment</strong></a>
+  &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+  <a href="#setup-instructions"><strong>Local Setup</strong></a>
+  &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+  <a href="https://github.com/umarSiddique010/rick-morty-game-react"><strong>Repository</strong></a>
+  &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+  <a href="https://github.com/umarSiddique010/rick-morty-game-react/issues"><strong>Report an Issue</strong></a>
+</p>
 
-[![React](https://img.shields.io/badge/React-Class_Components-61DAFB?logo=react&logoColor=black)](https://reactjs.org/)
-[![Jest](https://img.shields.io/badge/Jest-Tested-C21325?logo=jest&logoColor=white)](https://jestjs.io/)
-[![GitHub Actions](https://img.shields.io/badge/CI%2FCD-Pipeline-2088FF?logo=github-actions&logoColor=white)](https://github.com/features/actions)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animation-0055FF?logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![Prettier](https://img.shields.io/badge/Code_Style-Prettier-F7B93E?logo=prettier&logoColor=black)](https://prettier.io/)
-[![ESLint](https://img.shields.io/badge/Linter-ESLint-4B32C3?logo=eslint&logoColor=white)](https://eslint.org/)
+[![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)](https://jestjs.io/)
+[![Motion](https://img.shields.io/badge/Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://motion.dev/)
+[![Husky](https://img.shields.io/badge/Husky_Hooks-42B983?style=for-the-badge&logo=git&logoColor=white)](https://typicode.github.io/husky/)
+[![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/)
+[![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black)](https://prettier.io/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-181717?style=for-the-badge&logo=github&logoColor=white)](https://pages.github.com/)
 
 </div>
 
 ---
 
----
+## Overview
 
-## 🚀 Features & Architecture
+This repository demonstrates **"Class Components done right"** — a deliberate architectural choice in an era dominated by Hooks. `App.js` acts as the single source of truth, lifting state up and passing callbacks down, ensuring strict unidirectional data flow across the entire game.
 
-### 🧐 The Philosophy: Why Class Components?
+## Game Preview
 
-In an era dominated by Functional Components and Hooks, this project serves as a **deliberate architectural showcase** of core React fundamentals. By strictly utilizing Class Components, this codebase demonstrates:
+![Rick & Morty Memory Game](./public/game-screenshot.webp)
 
-- **Explicit Lifecycle Management:** Granular control over component behavior using `componentDidMount` (for API calls and timers), `componentDidUpdate` (for score tracking and game-over logic), and `componentWillUnmount` (for preventing memory leaks by clearing intervals and audio streams).
-- **Context Binding & `this`:** A deep understanding of JavaScript scope, `this` binding in constructors, and event handler management without relying on `useCallback`.
-- **State Architecture:** `App.js` acts as the single source of truth, lifting state up and passing callbacks down to children like `ScoreBoard` and `Card`, ensuring unidirectional data flow.
+## Features & Architecture
 
-### ⚡ Core Functionality
+### 1. The Philosophy: Why Class Components?
 
-- **REST API Integration:** Asynchronously fetches character data from the **Rick and Morty API**, handling loading states and errors gracefully within the `CardContainer` lifecycle.
-- **Fluid Animations:** Utilizes **Framer Motion** (`motion/react`) to orchestrate complex entrance and exit animations for the game board, modals, and score updates.
-- **Immersive Audio Engine:** Features a dedicated `GameSounds.js` class that manages `Audio` instances, background music loops, and sound effects with a global mute toggle.
-- **Responsive UI:** Built with **CSS Modules** to ensure locally scoped styles, preventing class name collisions while maintaining a fully responsive design across devices.
+In an era dominated by Functional Components and Hooks, this project serves as a deliberate architectural showcase of core React fundamentals. By strictly utilizing Class Components, this codebase demonstrates:
 
----
+- **Explicit Lifecycle Management:** Granular control using `componentDidMount` (API calls and timers), `componentDidUpdate` (score tracking and game-over logic), and `componentWillUnmount` (clearing intervals and audio streams to prevent memory leaks)
+- **Context Binding & `this`:** A deep understanding of JavaScript scope, `this` binding in constructors, and event handler management without relying on `useCallback`
+- **State Architecture:** `App.js` as the single source of truth — state lifted up, callbacks passed down, unidirectional data flow enforced throughout
 
-## 🛠 Tech Stack
+### 2. Core Gameplay
 
-| Category                 | Technology                          |
-| :----------------------- | :---------------------------------- |
-| **Core Framework**       | React 19 (Class-Based Architecture) |
-| **Language**             | JavaScript (ES6+)                   |
-| **Styling**              | CSS Modules, Utility Classes        |
-| **Animation**            | Framer Motion (`motion/react`)      |
-| **Testing**              | Jest, React Testing Library         |
-| **Linting & Formatting** | ESLint, Prettier                    |
-| **CI & Hosting**         | GitHub Actions, GitHub Pages        |
+- 3 difficulty levels — Easy (210s), Medium (120s), Hard (40s)
+- Click each card only once; duplicate click = Game Over
+- High score persisted to `localStorage` across sessions
 
----
+### 3. Key Technical Features
 
-## 🧪 Testing Strategy
+- **Rick & Morty API** — Characters fetched asynchronously in `CardContainer`'s `componentDidMount` with loading and error states
+- **Audio Engine** — Dedicated `GameSounds.js` class managing BGM, SFX, and global mute toggle, fully decoupled from UI
+- **Animations** — `motion/react` spring physics for entrance/exit transitions on the game board and modals
+- **CSS Modules** — Scoped styles, zero class name collisions
 
-This project employs a "Test-Driven mindset" with a robust suite covering Unit, Integration, and Logic tests.
+### 4. Testing
 
-- **Unit Testing:** Individual components like `Card.js` and `TimerBoard.js` are tested in isolation to ensure they render props correctly and fire events as expected.
-- **Integration Testing:** `App.test.js` simulates full user flows—starting the game, clicking cards, and triggering game-over states—to verify component interaction.
-- **Mocking:**
-  - **Audio API:** The `GameSounds.js` class is fully mocked in `src/__mocks__/GameSounds.js` to prevent audio playback issues in the test environment.
-  - **Fetch API:** Global `fetch` is mocked to simulate API responses for deterministic testing of the `CardContainer`.
-- **Coverage:** The pipeline enforces high test coverage, runnable via `npm run test:coverage`.
+- Unit tests for isolated components (`Card`, `TimerBoard`, `ScoreBoard`)
+- Integration tests in `App.test.js` covering full user flows — start game, card clicks, Game Over
+- `GameSounds.js` fully mocked in `src/__mocks__/`; global `fetch` mocked for deterministic API tests
+- Coverage enforced in CI via `npm run test:coverage`
 
----
+### 5. CI Pipeline
 
-## ⚙️ CI, Quality Assurance & Deployment
+Every push and PR must pass `.github/workflows/ci.yml` before merging:
 
-Code quality is enforced via a strict **GitHub Actions** pipeline defined in `.github/workflows/ci.yml`. No code reaches production without passing these gates:
+- ESLint → Prettier format check → Jest coverage → coverage report uploaded as CI artifact
 
-1.  **Dependency Installation:** Ensures a clean slate using `npm install --legacy-peer-deps`.
-2.  **Linting:** Runs `npm run lint` (ESLint) to catch static errors and enforce coding standards.
-3.  **Formatting:** Runs `npm run format:check` (Prettier) to ensure stylistic consistency.
-4.  **Test Suite:** Executes `npm run test:coverage` to verify business logic and prevent regressions.
-5.  **Deployment (GitHub Pages):** Utilizes `gh-pages` for controlled manual deployments. This leverages GitHub's native ecosystem to securely and freely host the static React build, ensuring only fully-tested code reaches production.
+## Tech Stack
 
----
+| Category           | Technology                    | Usage                                                                                 |
+| :----------------- | :---------------------------- | :------------------------------------------------------------------------------------ |
+| **Core Framework** | **React 19**                  | Class-Based Components, lifecycle methods                                             |
+| **Bundler**        | **Create React App**          | Build tooling; intentionally chosen over Vite for CRA + class component compatibility |
+| **Language**       | **JavaScript (ES6+)**         | Class architecture, `this` binding                                                    |
+| **Styling**        | **CSS Modules**               | Scoped styles, zero collisions                                                        |
+| **Animation**      | **Motion (`motion/react`)**   | Spring physics, entrance/exit animations                                              |
+| **Audio**          | **Web Audio API**             | Custom `GameSounds` class for SFX and BGM                                             |
+| **Testing**        | **Jest + RTL**                | Unit and integration tests                                                            |
+| **Code Quality**   | **ESLint + Prettier + Husky** | Pre-commit and CI enforcement                                                         |
+| **CI**             | **GitHub Actions**            | Lint → Format → Test → Coverage artifact                                              |
+| **Hosting**        | **GitHub Pages**              | Manual deployment via `npm run deploy`                                                |
 
-## 🚀 Setup Instructions
-
-Follow these steps to run the application locally.
+## Setup Instructions
 
 ### Prerequisites
 
-- Node.js (v18 or v20 recommended)
+- Node.js v18 or v20
 - npm
 
-### Installation
+### 1. Clone & Install
 
-1.  **Clone the repository:**
+```bash
+git clone https://github.com/umarSiddique010/rick-morty-game-react.git
+cd rick-morty-game-react
+npm install --legacy-peer-deps
+```
 
-    ```bash
-    git clone https://github.com/umarSiddique010/rick-morty-game-react.git
+> `--legacy-peer-deps` is required — CRA has peer dependency conflicts with React 19.
 
-    cd rick-morty-game-react
-    ```
+### 2. Run
 
-2.  **Install dependencies:**
-    _Note: The project uses React 19 with some legacy dependencies._
+```bash
+npm start
+```
 
-    ```bash
-    npm install --legacy-peer-deps
-    ```
+Open [http://localhost:3000](http://localhost:3000).
 
-3.  **Start the development server:**
+### 3. Quality Checks
 
-    ```bash
-    npm start
-    ```
+```bash
+npm run lint
+npm run format:check
+npm run test:coverage
+```
 
-4.  **Run Quality Checks**
+### 4. Deploy to GitHub Pages
 
-    ```bash
-    # Run Linter
-    npm run lint
+```bash
+npm run deploy
+```
 
-    # Check Formatting
-    npm run format:check
+> This runs `npm run build` then pushes the build to the `gh-pages` branch. Deployment is manual — run this only after all quality checks pass.
 
-    # Run Test Suite with Coverage
-    npm run test:coverage
-    ```
+## Project Structure
 
-### Development Commands
-
-| Command                 | Description                                                  |
-| :---------------------- | :----------------------------------------------------------- |
-| `npm start`             | Runs the app in development mode at `http://localhost:3000`. |
-| `npm run test`          | Launches the test runner in interactive watch mode.          |
-| `npm run test:coverage` | Runs tests once and generates a coverage report.             |
-| `npm run lint`          | Checks the codebase for linting errors.                      |
-| `npm run format`        | Auto-formats code using Prettier.                            |
-
----
-
-## 📂 Project Structure
-
-```text
+```
 src/
-├── __mocks__/            # Jest mocks for GameSounds and Audio
-├── __test__/             # Comprehensive test suite (Unit & Integration)
-├── assets/               # Fonts, Images, and Wallpapers
+├── __mocks__/             # Jest mock for GameSounds and Audio API
+├── __test__/              # Full test suite (Unit & Integration)
+├── assets/                # Fonts, images, wallpaper
 ├── Components/
-│   ├── Card/             # Individual Memory Card component
-│   ├── CardContainer/    # Grid layout and API fetching logic
-│   ├── GameOver/         # Game Over modal with score summary
-│   ├── PlayGame/         # Main game orchestrator
-│   ├── ScoreBoard/       # HUD for Score, High Score, and Cards Left
-│   ├── SoundToggleButton/# Global audio control
-│   ├── StartGame/        # Landing page and Level selection
-│   └── TimerBoard/       # Countdown timer logic
-├── App.js                # Root Component & State Container
-├── GameSounds.js         # Audio Class for SFX and BGM management
-├── index.css             # Global variables and resets
-└── setupTests.js         # Jest configuration
+│   ├── Card/              # Individual memory card
+│   ├── CardContainer/     # Card grid + API fetching
+│   ├── GameOver/          # Game Over modal
+│   ├── PlayGame/          # Main game orchestrator
+│   ├── ScoreBoard/        # Score, high score, cards left HUD
+│   ├── SoundToggleButton/ # Global mute control
+│   ├── StartGame/         # Landing page and difficulty selection
+│   └── TimerBoard/        # Countdown timer
+├── App.js                 # Root component and state container
+├── GameSounds.js          # Audio class: SFX and BGM
+└── index.css              # Global CSS variables and resets
 ```
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1.  Fork the repository.
-2.  Create a feature branch (`git checkout -b feature/AmazingFeature`).
-3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4.  Push to the branch (`git push origin feature/AmazingFeature`).
-5.  Open a Pull Request.
-
-## 📝 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
 <div align="center">
-  <p><strong>Developed by Md Umar Siddique</strong></p>
 
+### Developer & Maintainer
+
+**Md Umar Siddique**
+
+<p align="center">
+  <a href="https://www.umarsiddique.dev/">
+    <img src="https://img.shields.io/badge/Portfolio-umarsiddique.dev-000000?style=flat-square&logo=googlechrome&logoColor=white" alt="Portfolio Website" />
+  </a>
   <a href="https://www.linkedin.com/in/md-umar-siddique-1519b12a4/">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="https://www.npmjs.com/~umarSiddique010">
-    <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="NPM" />
-  </a>
-  <a href="https://dev.to/umarsiddique010">
-    <img src="https://img.shields.io/badge/DEV.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white" alt="DEV Community" />
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
   <a href="https://github.com/umarSiddique010">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+    <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
   </a>
-  <a href="mailto:us70763@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  <a href="https://www.npmjs.com/~umarsiddique010">
+    <img src="https://img.shields.io/badge/NPM-CB3837?style=flat-square&logo=npm&logoColor=white" alt="NPM" />
   </a>
+  <a href="https://dev.to/umarsiddique010">
+    <img src="https://img.shields.io/badge/Dev.to-0A0A0A?style=flat-square&logo=dev.to&logoColor=white" alt="Dev.to" />
+  </a>
+   <a href="mailto:us70763@gmail.com">
+  <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email" />
+</a>
+</p>
 
-<br/><br/>
+&copy; 2024 - Present. Released under the MIT License.
 
-  <p>
-    <strong>Project Links:</strong> 
-    <a href="https://umarsiddique010.github.io/rick-morty-game-react/">🚀 Live Demo</a> • 
-    <a href="https://github.com/umarSiddique010/rick-morty-game-react/issues">🐞 Report an Issue</a> • 
-    <a href="https://github.com/umarSiddique010/rick-morty-game-react">⭐ Star this Repo</a>
-  </p>
 </div>

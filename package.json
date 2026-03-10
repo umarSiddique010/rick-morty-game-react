@@ -4,18 +4,7 @@
   "homepage": "https://umarSiddique010.github.io/rick-morty-game-react",
   "private": true,
   "type": "module",
-  "description": "A Rick and Morty-themed memory card game built with React using class-based components. Match characters, race against the clock, and challenge your memory!",
-  "keywords": [
-    "Rick and Morty",
-    "memory game",
-    "card game",
-    "React",
-    "class-based components",
-    "online game",
-    "puzzle",
-    "free game",
-    "memory challenge"
-  ],
+  "description": "A Rick and Morty-themed memory card game built with React class-based components. Match characters, beat the clock across 3 difficulty levels, and challenge your memory!",
   "author": "Md Umar Siddique",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
