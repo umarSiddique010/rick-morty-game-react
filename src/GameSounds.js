@@ -1,12 +1,20 @@
+import cardClickSoundSrc from './assets/sounds/cardClickSound.mp3';
+import easyButtonSoundSrc from './assets/sounds/easyButtonSound.mp3';
+import mediumButtonSoundSrc from './assets/sounds/mediumButtonSound.mp3';
+import hardButtonSoundSrc from './assets/sounds/hardButtonSound.mp3';
+import lobbyButtonSoundSrc from './assets/sounds/lobbyButtonSound.mp3';
+import lobbyBGMSrc from './assets/sounds/lobbyBGM.mp3';
+import gamePlaySoundSrc from './assets/sounds/rickAndMortyBGMSound.mp3';
+
 export default class GameSounds {
   constructor() {
-    this.cardClickSound = new Audio('/sounds/cardClickSound.mp3');
-    this.easyButtonSound = new Audio('/sounds/easyButtonSound.mp3');
-    this.mediumButtonSound = new Audio('/sounds/mediumButtonSound.mp3');
-    this.hardButtonSound = new Audio('/sounds/hardButtonSound.mp3');
-    this.lobbyButtonSound = new Audio('/sounds/lobbyButtonSound.mp3');
-    this.lobbyBGM = new Audio('/sounds/lobbyBGM.mp3');
-    this.gamePlaySound = new Audio('/sounds/rickAndMortyBGMSound.mp3');
+    this.cardClickSound = new Audio(cardClickSoundSrc);
+    this.easyButtonSound = new Audio(easyButtonSoundSrc);
+    this.mediumButtonSound = new Audio(mediumButtonSoundSrc);
+    this.hardButtonSound = new Audio(hardButtonSoundSrc);
+    this.lobbyButtonSound = new Audio(lobbyButtonSoundSrc);
+    this.lobbyBGM = new Audio(lobbyBGMSrc);
+    this.gamePlaySound = new Audio(gamePlaySoundSrc);
 
     this.mute = false;
   }
@@ -15,7 +23,11 @@ export default class GameSounds {
     if (!this.mute) {
       const sound = this.cardClickSound.cloneNode();
       sound.volume = 0.32;
-      sound.play();
+      sound.play().catch(err => {
+        if (err.name !== 'AbortError') {
+          console.error('Error playing cardClickSound:', err);
+        }
+      });
     }
   }
 
@@ -23,7 +35,11 @@ export default class GameSounds {
     if (!this.mute) {
       const sound = this.easyButtonSound.cloneNode();
       sound.volume = 0.5;
-      sound.play();
+      sound.play().catch(err => {
+        if (err.name !== 'AbortError') {
+          console.error('Error playing easyButtonSound:', err);
+        }
+      });
     }
   }
 
@@ -31,7 +47,11 @@ export default class GameSounds {
     if (!this.mute) {
       const sound = this.mediumButtonSound.cloneNode();
       sound.volume = 0.5;
-      sound.play();
+      sound.play().catch(err => {
+        if (err.name !== 'AbortError') {
+          console.error('Error playing mediumButtonSound:', err);
+        }
+      });
     }
   }
 
@@ -39,7 +59,11 @@ export default class GameSounds {
     if (!this.mute) {
       const sound = this.hardButtonSound.cloneNode();
       sound.volume = 0.5;
-      sound.play();
+      sound.play().catch(err => {
+        if (err.name !== 'AbortError') {
+          console.error('Error playing hardButtonSound:', err);
+        }
+      });
     }
   }
 
@@ -47,7 +71,11 @@ export default class GameSounds {
     if (!this.mute) {
       const sound = this.lobbyButtonSound.cloneNode();
       sound.volume = 0.5;
-      sound.play();
+      sound.play().catch(err => {
+        if (err.name !== 'AbortError') {
+          console.error('Error playing lobbyButtonSound:', err);
+        }
+      });
     }
   }
 
@@ -91,11 +119,11 @@ export default class GameSounds {
     if (typeof muteValue !== 'boolean') {
       throw new Error('Mute value must be a boolean value');
     }
+
     this.mute = muteValue;
 
     if (this.mute) {
       this.pauseLobbyBGM();
-
       this.pauseGamePlaySound();
     } else {
       if (screenContext === 'playGame') {

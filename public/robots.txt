@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://umarsiddique010.github.io/rick-morty-game-react/sitemap.xml
