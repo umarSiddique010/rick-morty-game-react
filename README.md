@@ -76,6 +76,19 @@ Every push and PR must pass `.github/workflows/ci.yml` before merging:
 
 - ESLint → Prettier format check → Jest coverage → coverage report uploaded as CI artifact
 
+### 6. Performance & Web Vitals (Lighthouse)
+
+The application is designed for consistent performance and stability, achieving a **100/100** Lighthouse score on Desktop. On Mobile (Slow 4G), it maintains strong performance while handling animations and a custom audio engine.
+
+| Metric             | Mobile (Slow 4G) | Desktop |
+| :----------------- | :--------------: | :-----: |
+| **Performance**    |      🟠 78       | 🟢 100  |
+| **Accessibility**  |      🟢 100      | 🟢 100  |
+| **Best Practices** |      🟢 100      | 🟢 100  |
+| **SEO**            |      🟢 100      | 🟢 100  |
+
+> **Note:** Scores reflect optimized rendering, efficient state updates, and careful lifecycle management to minimize main-thread blocking and prevent memory leaks.
+
 ## Tech Stack
 
 | Category           | Technology                    | Usage                                                                                 |

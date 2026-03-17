@@ -1,6 +1,7 @@
 @font-face {
   font-family: rick-morty;
   src: url('../../assets/get_schwifty.woff2');
+  font-display: swap;
 }
 .cardSection {
   width: 100%;
