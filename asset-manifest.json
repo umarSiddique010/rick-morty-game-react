@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/rick-morty-game-react/static/css/main.becf51b6.css",
+    "main.css": "/rick-morty-game-react/static/css/main.11f859ac.css",
     "main.js": "/rick-morty-game-react/static/js/main.52765052.js",
     "static/js/453.ce0c0e7d.chunk.js": "/rick-morty-game-react/static/js/453.ce0c0e7d.chunk.js",
-    "static/media/rick-and-morty-wallpaper-photo.webp": "/rick-morty-game-react/static/media/rick-and-morty-wallpaper-photo.e1b55367920f32272641.webp",
+    "static/media/rick-and-morty-desktop-wallpaper-photo.webp": "/rick-morty-game-react/static/media/rick-and-morty-desktop-wallpaper-photo.e1b55367920f32272641.webp",
     "static/media/lobbyBGM.mp3": "/rick-morty-game-react/static/media/lobbyBGM.efebe52aae6d8555de9e.mp3",
     "static/media/rickAndMortyBGMSound.mp3": "/rick-morty-game-react/static/media/rickAndMortyBGMSound.f58d78e497b2e5ad4f43.mp3",
+    "static/media/rick-and-morty-mobile-wallpaper-photo.webp": "/rick-morty-game-react/static/media/rick-and-morty-mobile-wallpaper-photo.9542ede714f806aa3bd7.webp",
     "static/media/cardClickSound.mp3": "/rick-morty-game-react/static/media/cardClickSound.a16fc439ac39a0048ab6.mp3",
     "static/media/mediumButtonSound.mp3": "/rick-morty-game-react/static/media/mediumButtonSound.e652676432ab5d8243e8.mp3",
     "static/media/lobbyButtonSound.mp3": "/rick-morty-game-react/static/media/lobbyButtonSound.a4f2198e28b584bf7b29.mp3",
@@ -13,12 +14,12 @@
     "static/media/hardButtonSound.mp3": "/rick-morty-game-react/static/media/hardButtonSound.e174fb823c05d65e9ed8.mp3",
     "static/media/easyButtonSound.mp3": "/rick-morty-game-react/static/media/easyButtonSound.26657c59ee2550977bf4.mp3",
     "index.html": "/rick-morty-game-react/index.html",
-    "main.becf51b6.css.map": "/rick-morty-game-react/static/css/main.becf51b6.css.map",
+    "main.11f859ac.css.map": "/rick-morty-game-react/static/css/main.11f859ac.css.map",
     "main.52765052.js.map": "/rick-morty-game-react/static/js/main.52765052.js.map",
     "453.ce0c0e7d.chunk.js.map": "/rick-morty-game-react/static/js/453.ce0c0e7d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.becf51b6.css",
+    "static/css/main.11f859ac.css",
     "static/js/main.52765052.js"
   ]
 }
