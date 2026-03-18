@@ -82,10 +82,10 @@ The application is designed for consistent performance and stability, achieving 
 
 | Metric             | Mobile (Slow 4G) | Desktop |
 | :----------------- | :--------------: | :-----: |
-| **Performance**    |      🟠 78       | 🟢 100  |
-| **Accessibility**  |      🟢 100      | 🟢 100  |
-| **Best Practices** |      🟢 100      | 🟢 100  |
-| **SEO**            |      🟢 100      | 🟢 100  |
+| **Performance**    |        78        |   100   |
+| **Accessibility**  |       100        |   100   |
+| **Best Practices** |       100        |   100   |
+| **SEO**            |       100        |   100   |
 
 > **Note:** Scores reflect optimized rendering, efficient state updates, and careful lifecycle management to minimize main-thread blocking and prevent memory leaks.
 
